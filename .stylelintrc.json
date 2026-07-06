@@ -1,0 +1,12 @@
+{
+  "extends": "stylelint-config-standard",
+  "rules": {
+    "no-descending-specificity": null,
+    "custom-property-empty-line-before": null,
+    "value-keyword-case": null,
+    "comment-empty-line-before": null,
+    "comment-whitespace-inside": null,
+    "rule-empty-line-before": null
+  },
+  "ignoreFiles": ["dist/**"]
+}
