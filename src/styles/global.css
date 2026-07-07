@@ -1,3 +1,24 @@
+@media (width >= 828px) {
+    button {
+        display: none;
+    }
+
+}
+
+@media (width <= 827px) {
+    button {
+        display: block
+    }
+
+    header nav {
+        display: none;
+    }
+
+    [aria-expanded="true"] + nav {
+        display: block;
+    }
+}
+
 :root {
     --font-size: clamp(1rem, 18px + 1vh, 1.2rem);
     --font-scale: 1.25;
@@ -19,7 +40,7 @@
 * {
     box-sizing: border-box;
     margin: 0;
-    max-inline-size: var(--satzspiegel);
+
 }
 
 html,
@@ -47,7 +68,6 @@ body {
     color: var(--dark);
     background: var(--light);
     padding: var(--space);
-    max-width: 60rem;
     margin-inline: auto;
 }
 
@@ -68,6 +88,7 @@ a:has(figure) {
     transform: none;
 }
 
+/* --- Logo ---*/
 .logo {
     display: inline-block;
     color: var(--silver);
@@ -75,14 +96,22 @@ a:has(figure) {
     font-size: calc(var(--font-size) * 1.5);
     padding: var(--space);
     margin-block-end: var(--space);
+    position: relative;
 }
 
+.logo a {
+    padding-inline: min(1em, 1.5rem);
+}
 
-nav > ul {
-    display: inline-block;
-    list-style: none;
-    padding: 0;
-    margin-block-start: 1em;
+.logo::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 20px;
+    height: 20px;
+    border-right: 20px solid white;
+    border-bottom: 20px solid white;
 }
 
 
@@ -128,12 +157,19 @@ header {
     flex-grow: 0;
     align-items: flex-start;
     hyphens: manual;
-    padding-block: var(--space);
 }
 
 nav h2 {
     font-size: var(--font-size);
     text-transform: uppercase;
+    font-weight: 800;
+}
+
+nav > ul {
+    display: inline-block;
+    list-style: none;
+    padding: 0;
+    margin-block: 1em;
 }
 
 nav a, li a, header a, footer a {
@@ -147,6 +183,10 @@ li a:hover, p a, section a {
     letter-spacing: normal;
     text-decoration: underline;
     text-underline-offset: 3px;
-    text-decoration-thickness: 1px;
+    text-decoration-thickness: 3px;
     text-decoration-color: var(--silver);
+}
+
+li a:hover {
+    letter-spacing: 0.12em;
 }
