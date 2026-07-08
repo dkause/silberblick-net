@@ -1,0 +1,53 @@
+---
+import '../styles/global.css'
+import Head from '../components/head.astro'
+import Header from '../layouts/header.astro'
+import { Image } from 'astro:assets'
+import meisterbrief from '../assets/Meisterbrief-1024x720.jpg'
+import uxCert from '../assets/Certifcate-UX-Design-1024x724.jpg'
+import fsdCert from '../assets/CareerFoundry_Certificate_FSD_Daniel-Kause-scaled.jpg'
+---
+
+<html lang="en">
+  <Head />
+  <body class="with-sidebar">
+    <Header />
+    <main class="stack content">
+      <h1>Meisterbrief und Zertifikate</h1>
+      <p>
+        Meine professionelle Karriere beginnt Mitte der Neunziger in Berlin.
+        1995 arbeite ich einige Jahre als Assistent für den Fotografen Eckard
+        Joite. Sieben Jahre und etliche eigene Kunden und Aufräge später
+        formalisiere ich meine Erfahrung in Form eines Meistertitels.
+      </p>
+      <h2>Meisterbrief Berliner Handwerkskammer</h2><div>
+        <figure>
+          <Image
+            style="width: 270px"
+            src={meisterbrief}
+            alt="Meisterbrief der Handwerkskammer Berlin"
+          />
+          <figcaption>Fotografenmeister seit 2003</figcaption>
+        </figure>
+        <h2>Zertifikat UX Designer</h2>
+        <figure>
+          <Image style="width: 270px" src={uxCert} alt="Zerfikat UX Designer" />
+          <figcaption>UX Designer seit 2022</figcaption>
+        </figure>
+        <h2>Zertifikat Fullstack Developer</h2>
+        <figure>
+          <Image
+            style="width: 270px"
+            src={fsdCert}
+            alt="Zertifikat Full Stack Developer"
+          />
+
+          <figcaption>Full Stack Developer seit 2024</figcaption>
+        </figure>
+      </div>
+    </main>
+    <img
+      src="https://tracker.metricool.com/c3po.jpg?hash=b901fbe3bd3e0e929d391dec5949ef08"
+    />
+  </body>
+</html>

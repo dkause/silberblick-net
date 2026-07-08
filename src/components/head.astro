@@ -1,5 +1,5 @@
 ---
-
+const { description } = Astro.props
 ---
 
 <head>
@@ -8,10 +8,7 @@
   <link rel="icon" href="/favicon.ico" />
   <meta name="viewport" content="width=device-width" />
   <meta name="generator" content={Astro.generator} />
-  <meta
-    name="description"
-    content="Daniel Kause fotografiert und baut Webseiten in Berlin "
-  />
+  <meta name="description" content={description} />
   <title>Silberblick</title>
   <!-- Matomo Tag Manager -->
   <script>
