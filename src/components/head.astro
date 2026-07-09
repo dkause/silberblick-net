@@ -1,5 +1,5 @@
 ---
-const { description } = Astro.props
+const { title, description } = Astro.props
 ---
 
 <head>
@@ -9,7 +9,7 @@ const { description } = Astro.props
   <meta name="viewport" content="width=device-width" />
   <meta name="generator" content={Astro.generator} />
   <meta name="description" content={description} />
-  <title>Silberblick</title>
+  <title>{title ? title + ' – Silberblick' : 'Silberblick'}</title>
   <!-- Matomo Tag Manager -->
   <script>
     var _mtm = (window._mtm = window._mtm || [])

@@ -1,19 +1,8 @@
 ---
-import '../styles/global.css'
-import Head from '../components/head.astro'
-import Header from './header.astro'
+import BaseLayout from './BaseLayout.astro'
 const { frontmatter } = Astro.props
 ---
 
-<html lang="en">
-  <Head description={frontmatter.description} />
-  <body class="with-sidebar">
-    <Header />
-    <main class="stack content">
-      <slot />
-    </main>
-    <img
-      src="https://tracker.metricool.com/c3po.jpg?hash=b901fbe3bd3e0e929d391dec5949ef08"
-    />
-  </body>
-</html>
+<BaseLayout title={frontmatter.title} description={frontmatter.description}>
+  <slot />
+</BaseLayout>

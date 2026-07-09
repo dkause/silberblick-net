@@ -1,20 +1,8 @@
 ---
-import '../styles/global.css'
-import Head from '../components/head.astro'
-import Header from '../layouts/header.astro'
+import BaseLayout from '../layouts/BaseLayout.astro'
 ---
-
-<html lang="en">
-  <Head />
-  <body class="with-sidebar">
-    <Header />
-    <main class="stack content">
-      <h1>Fotografie und Webseiten aus einer Hand</h1><p>
-        Daniel Kause fotografiert und baut Webseiten
-      </p>
-    </main>
-    <img
-      src="https://tracker.metricool.com/c3po.jpg?hash=b901fbe3bd3e0e929d391dec5949ef08"
-    />
-  </body>
-</html>
+<BaseLayout title="SMartde">
+  <h1>Fotografie und Webseiten aus einer Hand</h1><p>
+    Daniel Kause fotografiert und baut Webseiten
+  </p>
+</BaseLayout>

@@ -1,0 +1,58 @@
+---
+import Image from 'astro/components/Image.astro'
+import BaseLayout from '../layouts/BaseLayout.astro'
+import daniel from '../assets/Daniel_Kause-Fotograf-1000px.jpg'
+---
+
+<BaseLayout title="Daniel Kause, Fotograf und Webentwickler aus Berlin">
+  <h1>Daniel Kause - Fotograf und Webentwickler aus Berlin</h1>
+  <p>
+    Meine Arbeit soll Impact haben, beim Kunden und nicht in der Umwelt. Mein
+    Design Verständnis ist funktional und nicht dekorativ.
+  </p>
+  <h2>Warum SILBERBLICK?</h2>
+  <p>
+    <strong>Glänzen ohne zu Blenden</strong><br />Silberblick bedeutet für mich
+    reduzieren bis der edle Kern sichtbar wird.
+  </p>
+
+  <p>
+    Die Idee entstand im Meisterkurs: Silberhalogenide sind das bildgebende Herz
+    der analogen Filme. Bevor Fotografie digital wurde habe ich unzählige Filme
+    entwickelt, Fotos vergrößert und in Laboren verarbeiten lassen. <br />Und
+    der Begriff Silberblick hat noch mehr Bedeutungen. Die leichte, charmante
+    Fehlstellung der Augen - ein gutes Signal an Portraitkunden: Du bist, wie du
+    bist, hier richtig. Gleichzeitig eine Referenz an die historische
+    Portraitmalerei.
+  </p>
+  <h2>Biografie</h2>
+  <div class="grid">
+    <ul>
+      <li>
+        <a href="/zertifikate#fsdCert"
+          >2024: Zertifizierung Full Stack Developer</a
+        >
+      </li>
+
+      <li>
+        <a href="/zertifikate#uxCert"> 2023: Zertifizierung UX Designer</a>
+      </li>
+
+      <li>2005: Ausbildung einer Fotografin</li>
+
+      <li>
+        <a href="/zertifikate#meisterbrief">2003: Meistertitel Fotograf</a>
+      </li>
+
+      <li>2001 - 2020: Foto-Studio "Silberblick"</li>
+
+      <li>1996 - 2001: freie Assistenz und Fotograf</li>
+      <li>1971: Geboren in Berlin</li>
+    </ul>
+    <Image
+      src={daniel}
+      alt="Daniel Kause Fotograf"
+      style="width: 40%; margin: 0"
+    />
+  </div>
+</BaseLayout>

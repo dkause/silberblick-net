@@ -1,6 +1,7 @@
 ---
-layout: ../../Layouts/MarkdownLayout.astro
-description: Daniel Kause baut für Silberblick  Webseiten in Berlin per Handarbeit  
+layout: ../../layouts/MarkdownLayout.astro
+title: Handarbeit
+description: Daniel Kause baut für Silberblick Webseiten in Berlin per Handarbeit  
 ---
 
 # Webseiten Unikate in Handarbeit

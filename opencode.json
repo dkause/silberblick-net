@@ -1,0 +1,32 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "instructions": ["AGENTS.md"],
+  "command": {
+    "dev": {
+      "description": "Start the Astro dev server in background mode",
+      "template": "Run `astro dev --background` to start the dev server. Use `astro dev status` to check status, `astro dev logs` to see logs, and `astro dev stop` to stop."
+    },
+    "build": {
+      "description": "Build the site for production",
+      "template": "Run `npm run build` to build the site for production deployment."
+    },
+    "preview": {
+      "description": "Preview the production build locally",
+      "template": "Run `npm run preview` to preview the production build."
+    },
+    "format": {
+      "description": "Format code with Prettier",
+      "template": "Run `npx prettier --write .` to format all files with Prettier."
+    },
+    "lint": {
+      "description": "Lint CSS with Stylelint",
+      "template": "Run `npx stylelint \"src/**/*.css\"` to lint CSS files."
+    }
+  },
+  "mcp": {
+    "Astro docs": {
+      "type": "remote",
+      "url": "https://mcp.docs.astro.build/mcp"
+    }
+  }
+}
