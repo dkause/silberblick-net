@@ -53,9 +53,13 @@ footer {
     max-inline-size: none;
 }
 
-p, article, aside, details, figcaption, figure {
+p, aside, details, figcaption, figure, blockquote {
     hyphens: none;
     max-inline-size: var(--satzspiegel);
+}
+
+p > a {
+    margin-block-start: 0 !important;
 }
 
 input, textarea, select, button {
@@ -113,7 +117,7 @@ a:has(figure) {
     padding-inline: min(1em, 1.5rem);
 }
 
-.logo::after {
+.bite::after {
     content: '';
     position: absolute;
     bottom: 0;
@@ -124,6 +128,29 @@ a:has(figure) {
     border-bottom: 20px solid white;
 }
 
+/* --- Hero --- */
+article.hero > h1 {
+    font-size: clamp(2rem, 3rem + 1vh, 5rem);
+    max-inline-size: none;
+}
+
+article.grid > em {
+    display: inline-block;
+}
+
+article.hero h1 > strong {
+    display: block;
+    font-size: var(--font-size);
+}
+
+/* --- Blockquote --- */
+blockquote {
+    display: block;
+    padding: var(--space);
+    color: var(--silver);
+    background-color: var(--dark);
+    border-radius: var(--space);
+}
 
 /* --- Layout -- */
 
@@ -155,6 +182,7 @@ a:has(figure) {
 }
 
 .grid > * {
+    margin-block-start: 0;
     flex: 1 1 20rem;
     display: block;
 }

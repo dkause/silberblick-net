@@ -12,11 +12,50 @@ import LandingPageLayout from '../layouts/LandingPageLayout.astro'
     <div id="wobble" data-src={daniel.src} style="max-width:min(80%,20rem)">
       <Image src={daniel} alt="Portraitfoto Daniel Kause" />
     </div>
-    <article>
-      <h1>Fotografie und Webseiten aus einer Hand</h1><p>
-        Daniel Kause fotografiert und baut Webseiten
+    <article class="hero">
+      <h1>Weniger ist <em>besser.</em></h1>
+      <p>
+        Silberblick ist eine <a href="/kause-biografie">Ein-Personen-Agentur</a> und
+        arbeitet mit Firmen, <a href="/referenzen#recherche-dienste"
+          >Solo-Selbständigen</a
+        > und <a href="/referenzen#SMartde">Organisationen</a> zusammen, die eine
+        für sie arbeitende Webseiten wollen.
       </p>
+      <blockquote class="bite">
+        Ich versuche die Dinge so einfach wie möglich zu machen und grabe mich
+        tief in Ihr Projekt ein.
+      </blockquote>
     </article>
+  </section>
+
+  <section id="services" class="grid" style="gap:0">
+    <div>
+      <h3>Design und Strategie</h3>
+      <ul>
+        <li>UX Design</li>
+        <li>Content-Strategie</li>
+        <li>Design-Systeme</li>
+        <li>Branding</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Technik</h3>
+      <ul>
+        <li>CMS wie WordPress, Typo3</li>
+        <li>Frameworks wie Astro, React</li>
+        <li>Prototyping/ Wireframes in Figma</li>
+        <li>Webstandards und Accessibility</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Fotografie</h3>
+      <ul>
+        <li>Businessportraits</li>
+        <li>Werbefotografie</li>
+        <li>Firmenportraits</li>
+        <li>Architekturfotos</li>
+      </ul>
+    </div>
   </section>
 </LandingPageLayout>
 <script>
