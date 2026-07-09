@@ -1,4 +1,4 @@
-@media (width >= 828px) {
+@media (width >= 735px) {
     button {
         display: none;
     }
@@ -43,6 +43,11 @@
 
 }
 
+ul {
+    padding-inline-start: 0;
+}
+
+/* --- Standards --- */
 html,
 body,
 div,
@@ -67,7 +72,7 @@ input, textarea, select, button {
 }
 
 img {
-    width: 100%;
+    max-width: max(var(--satzspiegel), 100%);
     height: auto;
 }
 
@@ -146,10 +151,6 @@ article.hero h1 > strong {
 /* --- Blockquote --- */
 blockquote {
     display: block;
-    padding: var(--space);
-    color: var(--silver);
-    background-color: var(--dark);
-    border-radius: var(--space);
 }
 
 /* --- Layout -- */
