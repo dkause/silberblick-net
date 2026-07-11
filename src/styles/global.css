@@ -1,5 +1,5 @@
 @media (width >= 735px) {
-    button {
+    .sidebar > button {
         display: none;
     }
 
@@ -44,7 +44,7 @@
 }
 
 ul {
-    padding-inline-start: 0;
+    padding-inline-start: clamp(0.5rem, 1rem + 1vw, 2rem);
 }
 
 /* --- Standards --- */
@@ -72,7 +72,7 @@ input, textarea, select, button {
 }
 
 img {
-    max-width: max(var(--satzspiegel), 100%);
+    max-width: 100%;
     height: auto;
 }
 
@@ -107,6 +107,8 @@ a:has(figure) {
     transform: none;
 }
 
+/* --- UI --- */
+
 /* --- Logo ---*/
 .logo {
     display: inline-block;
@@ -122,6 +124,7 @@ a:has(figure) {
     padding-inline: min(1em, 1.5rem);
 }
 
+/* --- bite --- */
 .bite::after {
     content: '';
     position: absolute;
@@ -148,9 +151,39 @@ article.hero h1 > strong {
     font-size: var(--font-size);
 }
 
+/* --- Form --- */
+form, label, input, textarea {
+    display: block;
+    width: 100%;
+    max-width: var(--satzspiegel);
+}
+
 /* --- Blockquote --- */
 blockquote {
     display: block;
+}
+
+/* --- CTA-Button ---*/
+
+button {
+    padding-inline: min(1em, 1.5rem);
+    min-height: 44px;
+    border: 3px dotted var(--dark);
+    border-radius: 3px;
+}
+
+button > a {
+    display: inline-flex;
+    align-items: center;
+    text-transform: uppercase;
+    transform: none;
+
+}
+
+button > a::after {
+    content: '>';
+    padding-inline-start: 0.5em;
+
 }
 
 /* --- Layout -- */
@@ -188,6 +221,11 @@ blockquote {
     display: block;
 }
 
+.grid > h2 {
+    flex: none;
+    width: 100%;
+}
+
 /* --- Header & Navigation --- */
 
 header {
@@ -217,7 +255,7 @@ nav a, li a, header a, footer a {
     min-height: 44px;
 }
 
-li a:hover, p a, section a {
+li a:hover, p > a, section > a {
     transform: none;
     letter-spacing: normal;
     text-decoration: underline;

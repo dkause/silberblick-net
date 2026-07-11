@@ -1,38 +1,61 @@
 ---
 import { Image } from 'astro:assets'
-import BaseLayout from '../layouts/LandingPageLayout.astro'
 import Logo from '../components/logo.astro'
 import daniel from '../assets/Daniel_Kause-Fotograf-1000px.jpg'
 import LandingPageLayout from '../layouts/LandingPageLayout.astro'
+import CTA from '../components/CTA.astro'
 ---
 
-<LandingPageLayout title="Daniel Kause">
+<LandingPageLayout
+  title="Daniel Kause"
+  description="Webseiten, schnell und barriefrei, die von Suchmaschinen gefunden und Ihnen Kunden bringen"
+>
   <Logo />
   <section class="grid">
     <div id="wobble" data-src={daniel.src} style="max-width:min(80%,20rem)">
       <Image src={daniel} alt="Portraitfoto Daniel Kause" />
     </div>
     <article class="hero">
-      <h1>Weniger ist <em>besser.</em></h1>
+      <h1>
+        Webseiten, die für Sie arbeiten.<strong
+          >Nicht Sie für die Webseite.</strong
+        >
+      </h1>
       <p>
         Silberblick ist eine <a href="/kause-biografie">Ein-Mensch-Agentur</a> und
-        arbeitet mit Firmen, <a href="/referenzen#recherche-dienste"
+        baut mit Firmen, <a href="/referenzen#recherche-dienste"
           >Solo-Selbständigen</a
-        > und <a href="/referenzen#SMartde">Organisationen</a> zusammen, die eine
-        für sie arbeitende Webseiten wollen. <br /><strong
-          >Und nicht andersrum!</strong
-        >
+        > und <a href="/referenzen#SMartde">Organisationen</a> Webseiten, die Kunden
+        gewinnen, schnell und barrierefrei sind und von Suchmaschinen gefunden werden.
+        <br />Wollen Sie mit mir zusammenarbeiten, dann beschreiben Sie mir in
+        einer E-Mail kurz das Projekt.
       </p>
-      <blockquote>
-        <p class="bite">
-          Ich versuche die Dinge so einfach wie möglich zu machen und grabe mich
-          tief in Ihr Projekt ein.
-        </p>
-      </blockquote>
-      <cite>Daniel Kause - Silberblick</cite>
+      <CTA />
     </article>
   </section>
-
+  <section class="grid" id="social-proof">
+    <h2 style="display: block">Das sagen Kunden:</h2>
+    <article style="visibility: hidden">
+      <h3>Recherche Dienste</h3>
+      <blockquote>
+        <p>
+          Die neue Seite hat bereits nach wenigen Tagen Anfragen aus Japan
+          generiert. Sie funktioniert einwandfrei.
+        </p>
+      </blockquote>
+      <cite>Dr. David Hamman - Recherche-Dienste.de</cite>
+    </article>
+    <article style="visibility: hidden  ">
+      <h3>SMartde.coop</h3>
+      <blockquote>
+        <p>
+          Die Seite ist viel klarer und barrierefrei und die Zusammenarbeit
+          reibungslos.
+        </p>
+      </blockquote>
+      <cite> Magda Ziomek- Geschäftsführerin SMartde.coop</cite>
+    </article>
+  </section>
   <section id="services" class="grid" style="gap:0">
     <div>
       <h3>Design und Strategie</h3>

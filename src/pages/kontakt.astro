@@ -1,0 +1,41 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+---
+
+<BaseLayout>
+  <h1>Skizzieren Sie Ihr Projekt</h1>
+  <main>
+    <form
+      action="https://formspree.io/f/manjljar"
+      method="POST"
+      aria-labelledby="contact-heading"
+    >
+      <fieldset>
+        <legend>Schreiben Sie ein, zwei kurze Sätze</legend>
+
+        <label for="email">E-Mail</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          required=""
+          aria-required="true"
+          aria-describedby="email-hint"
+        />
+
+        <label for="message">Nachricht</label>
+        <textarea
+          id="message"
+          name="message"
+          rows="6"
+          required=""
+          aria-required="true"
+          aria-describedby="message-hint"></textarea>
+
+        <button type="submit" aria-describedby="submit-hint"
+          >Nachricht senden</button
+        >
+      </fieldset>
+    </form>
+  </main>
+</BaseLayout>
