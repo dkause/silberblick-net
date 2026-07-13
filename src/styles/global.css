@@ -207,6 +207,16 @@ button > a::after {
     min-inline-size: 50%;
 }
 
+.grid-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30ex, auto));
+    gap: 2rem;
+}
+
+.grid-grid > * {
+    margin-block-start: 0;
+}
+
 .grid {
     display: flex;
     flex-wrap: wrap;
