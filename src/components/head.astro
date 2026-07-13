@@ -10,7 +10,7 @@ const { title, description } = Astro.props
   <meta lang="de" />
   <meta name="generator" content={Astro.generator} />
   <meta name="description" content={description} />
-  <title>{title ? title + ' – Silberblick' : 'Silberblick'}</title>
+  <title>{title || 'Silberblick'}</title>
   <!-- Matomo Tag Manager -->
   <script>
     var _mtm = (window._mtm = window._mtm || [])

@@ -7,8 +7,8 @@ import CTA from '../components/CTA.astro'
 ---
 
 <LandingPageLayout
-  title="Daniel Kause"
-  description="Webseiten, schnell und barriefrei, die von Suchmaschinen gefunden und Ihnen Kunden bringen"
+  title="Daniel Kause - Webentwicklung und UX Design | Silberblick "
+  description="Webseiten, schnell und barrierefrei, die von Suchmaschinen gefunden und Ihnen Kunden bringen"
 >
   <Logo />
   <section class="grid">
@@ -33,9 +33,9 @@ import CTA from '../components/CTA.astro'
       <CTA />
     </article>
   </section>
-  <section class="grid" id="social-proof">
+  <section class="grid" id="social-proof" style="display: none">
     <h2 style="display: block">Das sagen Kunden:</h2>
-    <article style="visibility: hidden">
+    <section>
       <h3>Recherche Dienste</h3>
       <blockquote>
         <p>
@@ -44,8 +44,8 @@ import CTA from '../components/CTA.astro'
         </p>
       </blockquote>
       <cite>Dr. David Hamman - Recherche-Dienste.de</cite>
-    </article>
-    <article style="visibility: hidden  ">
+    </section>
+    <section>
       <h3>SMartde.coop</h3>
       <blockquote>
         <p>
@@ -54,16 +54,17 @@ import CTA from '../components/CTA.astro'
         </p>
       </blockquote>
       <cite> Magda Ziomek- Geschäftsführerin SMartde.coop</cite>
-    </article>
+    </section>
   </section>
   <section id="services" class="grid" style="gap:0">
     <div>
       <h3>Design und Strategie</h3>
       <ul>
-        <li>UX Design</li>
-        <li>Content-Strategie</li>
-        <li>Design-Systeme</li>
+        <li><a href="/Webseiten/ux-strategie">UX Strategie</a></li>
+        <li>Content-Design</li>
+        <li>Design-Systeme, mit Figma oder HTML/CSS</li>
         <li>Branding</li>
+        <li>Glänzen ohne zu Blenden</li>
       </ul>
     </div>
     <div>
@@ -73,15 +74,7 @@ import CTA from '../components/CTA.astro'
         <li>Frameworks wie Astro, React</li>
         <li>Prototyping/ Wireframes in Figma</li>
         <li>Webstandards und Accessibility</li>
-      </ul>
-    </div>
-    <div>
-      <h3>Fotografie</h3>
-      <ul>
-        <li>Businessportraits</li>
-        <li>Werbefotografie</li>
-        <li>Firmenportraits</li>
-        <li>Architekturfotos</li>
+        <li>Kein Baukasten, keine Standardtemplates, kein Lock-in</li>
       </ul>
     </div>
   </section>
