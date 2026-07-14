@@ -1,5 +1,6 @@
 ---
 const { title, description } = Astro.props
+import { ClientRouter } from 'astro:transitions'
 ---
 
 <head>
@@ -9,6 +10,7 @@ const { title, description } = Astro.props
   <meta name="viewport" content="width=device-width" />
   <meta name="generator" content={Astro.generator} />
   <meta name="description" content={description} />
+  <ClientRouter />
   <title>{title || 'Silberblick'}</title>
   <!-- Matomo Tag Manager -->
   <script>

@@ -22,6 +22,8 @@ class MovingCells {
     this.mouseY = null
     this._lastW = 0
     this._lastH = 0
+
+    this._onMouseMove = (e) => this.onMouseMove(e)
     this.init().catch((err) => console.error('MovingCells init failed:', err))
   }
 
@@ -33,13 +35,18 @@ class MovingCells {
       backgroundColor: 0x000000,
     })
     this.container.appendChild(this.app.canvas)
-    window.addEventListener('mousemove', (e) => this.onMouseMove(e))
+    window.addEventListener('mousemove', this._onMouseMove)
     await this.loadImage()
+  }
+  destroy() {
+    window.removeEventListener('mousemove', this._onMouseMove)
+    this.app?.ticker.stop()
+    this.app?.destroy(true, { children: true, texture: true })
   }
 
   async loadImage() {
     const src = this.container.dataset.src
-    if (!src) throw new Error("Kein data-src an #wobble gefunden")
+    if (!src) throw new Error('Kein data-src an #wobble gefunden')
     this.texture = await PIXI.Assets.load(src)
     this.makeGrid()
   }
@@ -55,8 +62,10 @@ class MovingCells {
       for (let c = 0; c < this.cols; c++) {
         const cell = new Cell(c, r, this.cw, this.ch)
         const frame = new PIXI.Rectangle(
-          cell.frameX, cell.frameY,
-          cell.width, cell.height,
+          cell.frameX,
+          cell.frameY,
+          cell.width,
+          cell.height,
         )
         const tex = new PIXI.Texture({
           source: this.texture.source,
@@ -80,7 +89,10 @@ class MovingCells {
     const vpH = this.container.clientHeight
     const scale = Math.min(vpW / gridW, vpH / gridH)
 
-    this.app.renderer.resize(Math.round(gridW * scale), Math.round(gridH * scale))
+    this.app.renderer.resize(
+      Math.round(gridW * scale),
+      Math.round(gridH * scale),
+    )
     this.grid.scale.set(scale)
     this._lastW = this.container.clientWidth
     this._lastH = this.container.clientHeight
@@ -106,7 +118,10 @@ class MovingCells {
     const gridW = this.cols * this.cw
     const gridH = this.rows * this.ch
     const scale = Math.min(this._lastW / gridW, this._lastH / gridH)
-    this.app.renderer.resize(Math.round(gridW * scale), Math.round(gridH * scale))
+    this.app.renderer.resize(
+      Math.round(gridW * scale),
+      Math.round(gridH * scale),
+    )
     this.grid.scale.set(scale)
   }
 
@@ -122,8 +137,8 @@ class MovingCells {
       if (this.mouseX !== null) {
         const cx = cell.displayX + cell.width / 2
         const cy = cell.displayY + cell.height / 2
-        const ox = (this.mouseX - cx) / this.cw * 0.15
-        const oy = (this.mouseY - cy) / this.ch * 0.15
+        const ox = ((this.mouseX - cx) / this.cw) * 0.15
+        const oy = ((this.mouseY - cy) / this.ch) * 0.15
         const tx = Math.max(-1, Math.min(1, ox)) * this.cw * 0.15
         const ty = Math.max(-1, Math.min(1, oy)) * this.ch * 0.15
         cell.lookX += (tx - cell.lookX) * 0.08
