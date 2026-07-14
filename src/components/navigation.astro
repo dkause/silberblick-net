@@ -1,27 +1,91 @@
 ---
-
+const currentPath = Astro.url.pathname
 ---
 
 <button
   onclick="this.setAttribute('aria-expanded', this.getAttribute('aria-expanded') === 'true' ? 'false' : 'true')"
   aria-expanded="false">Menu</button
 >
-<nav>
+<nav aria-label="Hauptnavigation">
   <h2>Über Silberblick</h2><ul>
-    <li><a href="/referenzen">Referenzen</a></li>
-    <li><a href="/zertifikate">Zertifikate</a></li>
-    <li><a href="/kause-biografie">Kause (Bio)</a></li>
+    <li>
+      <a
+        href="/referenzen"
+        aria-current={currentPath === '/referenzen' ? 'page' : undefined}
+        >Referenzen</a
+      >
+    </li>
+    <li>
+      <a
+        href="/zertifikate"
+        aria-current={currentPath === '/zertifikaten' ? 'page' : undefined}
+        >Zertifikate</a
+      >
+    </li>
+    <li>
+      <a
+        href="/kause-biografie"
+        aria-current={currentPath === '/kause-biographie' ? 'page' : undefined}
+        >Kause (Bio)</a
+      >
+    </li>
   </ul>
   <h2>Webseiten</h2><ul>
-    <li><a href="/Webseiten/ux-strategie">UX-Strategie</a></li>
-    <li><a href="/Webseiten/WordPress">WordPress</a></li>
-    <li><a href="/Webseiten/Handarbeit">Handarbeit</a></li>
-    <li><a href="/Webseiten/preise">Preise</a></li>
+    <li>
+      <a
+        href="/webseiten/ux-strategie"
+        aria-current={currentPath === '/webseiten/ux-strategie'
+          ? 'page'
+          : undefined}>UX-Strategie</a
+      >
+    </li>
+    <li>
+      <a
+        href="/webseiten/WordPress"
+        aria-current={currentPath === '/webseiten/WordPress'
+          ? 'page'
+          : undefined}>WordPress</a
+      >
+    </li>
+    <li>
+      <a
+        href="/webseiten/Handarbeit"
+        aria-current={currentPath === '/webseiten/Handarbeit'
+          ? 'page'
+          : undefined}>Handarbeit</a
+      >
+    </li>
+    <li>
+      <a
+        href="/webseiten/preise"
+        aria-current={currentPath === '/webseiten/preise' ? 'page' : undefined}
+        >Preise</a
+      >
+    </li>
   </ul>
   <h2>Legales</h2><ul>
-    <li><a href="/legales/smartde">SMartde</a></li>
-    <li><a href="/legales/datenschutz">Datenschutz</a></li>
-    <li><a href="/legales/impressum">Impressum</a></li>
+    <li>
+      <a
+        href="/legales/smartde"
+        aria-current={currentPath === '/legales/smartde' ? 'page' : undefined}
+        >SMartde</a
+      >
+    </li>
+    <li>
+      <a
+        href="/legales/datenschutz"
+        aria-current={currentPath === '/legales/datenschutz'
+          ? 'page'
+          : undefined}>Datenschutz</a
+      >
+    </li>
+    <li>
+      <a
+        href="/legales/impressum"
+        aria-current={currentPath === '/legales/impressum' ? 'page' : undefined}
+        >Impressum</a
+      >
+    </li>
   </ul>
   <h2>Socials</h2><ul>
     <li><a href="https://de.pinterest.com/danielkause/">Pinterest</a></li>

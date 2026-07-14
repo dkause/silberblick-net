@@ -32,7 +32,7 @@
     /* --- Colors --- */
     --silver: silver;
     --dark: #1a1a1a;
-    --light: palewhite;
+    --light: #f6f6f5;
     --logo-skew: skewX(-18deg);
 }
 
@@ -56,6 +56,7 @@ nav,
 main,
 footer {
     max-inline-size: none;
+
 }
 
 p, aside, details, figcaption, figure, blockquote {
@@ -88,23 +89,25 @@ body {
     background: var(--light);
     padding: var(--space);
     margin-inline: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
 }
 
 /* --- Links --- */
 
-.logo a, a {
+a {
     font-family: var(--font-sans), sans-serif;
     color: inherit;
     display: inline-block;
     font-weight: 800;
     text-decoration: none;
-    transform: var(--logo-skew);
     letter-spacing: 0.15em;
 }
 
+
 a:has(figure) {
     display: inline-block;
-    transform: none;
 }
 
 /* --- UI --- */
@@ -122,18 +125,22 @@ a:has(figure) {
 
 .logo a {
     padding-inline: min(1em, 1.5rem);
+    transform: var(--logo-skew);
 }
+
 
 /* --- bite --- */
 .bite::after {
+    --bite-size: 20px;
+
     content: '';
     position: absolute;
     bottom: 0;
     right: 0;
-    width: 20px;
-    height: 20px;
-    border-right: 20px solid white;
-    border-bottom: 20px solid white;
+    width: var(--bite-size);
+    height: var(--bite-size);
+    border-right: var(--bite-size) solid var(--light);
+    border-bottom: var(--bite-size) solid var(--light);
 }
 
 /* --- Hero --- */
@@ -163,25 +170,28 @@ blockquote {
     display: block;
 }
 
-/* --- CTA-Button ---*/
+/* --- Link-Button ---*/
 
-button {
-    border: 9px solid var(--dark);
+.button {
+    border: 6px solid var(--dark);
     border-radius: 3px;
-}
-
-button > a {
     display: inline-flex;
+    font-size: calc(var(--font-size) * 1.25);
     align-items: center;
     text-transform: uppercase;
     transform: none;
+    padding: calc(var(--font-size) * 0.75);
 
 }
 
-button > a::after {
+.button::after {
     content: '>';
     padding-inline-start: 0.5em;
 
+}
+
+.button > a {
+    display: block;
 }
 
 /* --- Layout -- */
@@ -264,7 +274,6 @@ nav a, li a, header a, footer a {
 }
 
 li a:hover, p > a, section > a {
-    transform: none;
     letter-spacing: normal;
     text-decoration: underline;
     text-underline-offset: 3px;
