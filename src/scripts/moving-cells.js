@@ -23,6 +23,8 @@ class MovingCells {
     this._lastW = 0
     this._lastH = 0
 
+    this._lastMoveTime = 0
+    this._idleTimeout = 500
     this._onMouseMove = (e) => this.onMouseMove(e)
     this.init().catch((err) => console.error('MovingCells init failed:', err))
   }
@@ -105,11 +107,12 @@ class MovingCells {
 
   onMouseMove(e) {
     const rect = this.app.canvas.getBoundingClientRect()
-    const mx = e.clientX - rect.left
-    const my = e.clientY - rect.top
+    const mx = ((e.clientX - rect.left) / rect.width) * this.app.renderer.width
+    const my = ((e.clientY - rect.top) / rect.height) * this.app.renderer.height
     const s = this.grid.scale.x
     this.mouseX = mx / s
     this.mouseY = my / s
+    this._lastMoveTime = performance.now()
   }
 
   resize() {
@@ -129,16 +132,20 @@ class MovingCells {
     const w = this.container.clientWidth
     const h = this.container.clientHeight
     if (w !== this._lastW || h !== this._lastH) this.resize()
+    if (this.mouseX !== null && performance.now() - this._lastMoveTime > this._idleTimeout) {
+      this.mouseX = null
+      this.mouseY = null
+    }
     this.counter++
     for (const cell of this.cells) {
-      const wobbleX = Math.sin(this.counter * 0.03 + cell.phase) * this.cw * 0.1
-      const wobbleY = Math.cos(this.counter * 0.03 + cell.phase) * this.ch * 0.1
+      const wobbleX = Math.sin(this.counter * 0.03 + cell.phase) * this.cw * 0.2
+      const wobbleY = Math.sin(this.counter * 0.03 + cell.phase) * this.ch * 0.2
 
       if (this.mouseX !== null) {
         const cx = cell.displayX + cell.width / 2
         const cy = cell.displayY + cell.height / 2
-        const ox = ((this.mouseX - cx) / this.cw) * 0.15
-        const oy = ((this.mouseY - cy) / this.ch) * 0.15
+        const ox = ((this.mouseX - cx) / (this.cols * this.cw)) * 2
+        const oy = ((this.mouseY - cy) / (this.rows * this.ch)) * 2
         const tx = Math.max(-1, Math.min(1, ox)) * this.cw * 0.15
         const ty = Math.max(-1, Math.min(1, oy)) * this.ch * 0.15
         cell.lookX += (tx - cell.lookX) * 0.08
