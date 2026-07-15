@@ -40,7 +40,7 @@
 * {
     box-sizing: border-box;
     margin: 0;
-
+    padding: 0;
 }
 
 
@@ -114,13 +114,29 @@ a:has(figure) {
 }
 
 /* --- UI --- */
+/* --- Mobile Menu Button --- */
+header.sidebar > button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25em;
+    width: 100%;
+    background-color: var(--dark);
+    border: none;
+    color: var(--silver);
+    font-weight: bolder;
+    font-size: calc(var(--font-size) * 1.25);
+    padding: .75em;
+    margin-block-end: 2rem;
+}
+
 
 /* --- Logo ---*/
 .logo {
     display: inline-block;
     color: var(--silver);
     background-color: var(--dark);
-    font-size: calc(var(--font-size) * 2);
+    font-size: calc(var(--font-size) * 1.7);
     padding: var(--space);
     margin-block-end: var(--space);
     position: relative;
@@ -212,7 +228,7 @@ blockquote {
 }
 
 .sidebar {
-    flex-basis: 20rem;
+    flex-basis: 18rem;
     flex-grow: 1;
 }
 
@@ -232,8 +248,14 @@ blockquote {
     margin-block-start: 0;
 }
 
-#services > article > ul > li {
+ul {
+    list-style: square;
+    padding-inline-start: max(0.5rem, 1rem);
+}
+
+ul > li {
     line-height: 1rem;
+    padding-inline-start: 0;
 }
 
 .grid {
