@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets'
 import BaseLayout from '../../layouts/BaseLayout.astro'
+import responsiveFlow from '../../assets/recherche-dienste-de.webp'
 import cardSort from '../../assets/CardSorting-1.gif'
 import treeResults from '../../assets/recherche-dienste_block-results_tree-1024x379.jpg'
 ---
@@ -9,13 +10,22 @@ import treeResults from '../../assets/recherche-dienste_block-results_tree-1024x
   title="Relaunch WordPress Webseite Recherche-Dienste.de"
   description="Relaunch und Redesign WordPress für Dr David Hamnn - Recherche Dienste"
 >
-  <h1>WordPress Relaunch für Recherche Dienste Dr. David Hamann</h1>
+  <h1>WordPress Relaunch Recherche-Dienste.de</h1>
+
   <p>
     Für den Historiker Dr. David Hamann habe ich die Website
     "Recherche-Dienste.de" grundlegend neu aufgesetzt - von der Klärung der
     Zielgruppe bis zur Wahl der passenden technischen Plattform.
   </p>
-  <h2>Probleme</h2><p>
+  <figure style="border: 3px solid var(--dark)">
+    <Image src={responsiveFlow} alt={'responsives WordPress-Template'} />
+    <figcaption>
+      Passt sich an die Monitorgröße an: eigenes responsives WordPress-Template
+      für Dr. David Hamann.
+    </figcaption>
+  </figure>
+  <h2>Probleme</h2>
+  <p>
     Die WordPress-Seite wurde jahrelang nicht gewartet und war nicht mehr
     zugänglich. Inhaltlich war vieles wertvoll, aber:
   </p>

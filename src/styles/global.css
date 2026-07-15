@@ -43,9 +43,6 @@
 
 }
 
-ul {
-    padding-inline-start: clamp(0.5rem, 1rem + 1vw, 2rem);
-}
 
 /* --- Standards --- */
 html,
@@ -101,10 +98,16 @@ a {
     color: inherit;
     display: inline-block;
     font-weight: 800;
-    text-decoration: none;
-    letter-spacing: 0.15em;
+    letter-spacing: normal;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 3px;
+    text-decoration-color: var(--silver);
 }
 
+a:hover {
+    text-decoration-color: var(--dark);
+}
 
 a:has(figure) {
     display: inline-block;
@@ -117,7 +120,7 @@ a:has(figure) {
     display: inline-block;
     color: var(--silver);
     background-color: var(--dark);
-    font-size: calc(var(--font-size) * 1.5);
+    font-size: calc(var(--font-size) * 2);
     padding: var(--space);
     margin-block-end: var(--space);
     position: relative;
@@ -125,7 +128,9 @@ a:has(figure) {
 
 .logo a {
     padding-inline: min(1em, 1.5rem);
+    text-decoration: none;
     transform: var(--logo-skew);
+    letter-spacing: 0.25rem;
 }
 
 
@@ -179,7 +184,7 @@ blockquote {
     font-size: calc(var(--font-size) * 1.25);
     align-items: center;
     text-transform: uppercase;
-    transform: none;
+    text-decoration: none;
     padding: calc(var(--font-size) * 0.75);
 
 }
@@ -227,6 +232,10 @@ blockquote {
     margin-block-start: 0;
 }
 
+#services > article > ul > li {
+    line-height: 1rem;
+}
+
 .grid {
     display: flex;
     flex-wrap: wrap;
@@ -267,20 +276,9 @@ nav > ul {
     margin-block: 1em;
 }
 
-nav a, li a, header a, footer a {
+nav a, header a, footer a {
     letter-spacing: 0.12em;
     transform: none;
     min-height: 44px;
-}
-
-li a:hover, p > a, section > a {
-    letter-spacing: normal;
-    text-decoration: underline;
-    text-underline-offset: 3px;
-    text-decoration-thickness: 3px;
-    text-decoration-color: var(--silver);
-}
-
-li a:hover {
-    letter-spacing: 0.12em;
+    text-decoration: none;
 }

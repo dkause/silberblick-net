@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro'
+import { Image } from 'astro:assets'
+import RechercheDienste from '../../assets/recherche-dienste-webseite.png'
 ---
 
 <BaseLayout
@@ -7,10 +9,17 @@ import BaseLayout from '../../layouts/BaseLayout.astro'
   description="Referenzen: Kundenprojekte und eigene Projekte"
   ><section>
     <h1>Kundenprojekte</h1>
-    <h2>Webseiten und UX Strategie - Wartung und Beratung</h2>
+    <h2>WordPress: Wartung, Templates und Relaunch</h2>
     <article id="recherche-dienste">
       <h3>Recherche Dienste</h3>
       <p>Relaunch der WordPress Seite von Dr. David Hamann.</p>
+      <figure>
+        <Image
+          src={RechercheDienste}
+          alt="Screenshot Website Recherche Dienste"
+        />
+        <figure>Screenshot der Webseite von Recherche-Dienste.de.</figure>
+      </figure>
       <p>
         Das ursprüngliche Design war auf dem Handy kaum zu bedienen und wurde
         komplett neu aufgestellt und auf die Anforderungen eines
@@ -21,8 +30,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro'
         <li>eigenes Design, das von Handy bis Monitor Vertrauen ausstrahlt</li>
         <li>Wartungsarm dank weniger Plugins und eigenem Theme</li>
       </ul>
-      <a href="/src/pages/webseiten/wordpress-relaunch"
-        >Mehr dazu - hier klicken!</a
+      <a class="button" href="/webseiten/wordpress-relaunch"
+        >Den ganzen Ablauf finden sie hier</a
       >
     </article>
     <article id="SMartde">

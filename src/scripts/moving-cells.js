@@ -1,18 +1,5 @@
 import * as PIXI from 'pixi.js'
 
-class Cell {
-  constructor(col, row, cellW, cellH) {
-    this.col = col
-    this.row = row
-    this.width = cellW
-    this.height = cellH
-    this.frameX = col * cellW
-    this.frameY = row * cellH
-    this.displayX = col * cellW
-    this.displayY = row * cellH
-  }
-}
-
 class MovingCells {
   constructor(container) {
     this.container = container
@@ -62,25 +49,29 @@ class MovingCells {
 
     for (let r = 0; r < this.rows; r++) {
       for (let c = 0; c < this.cols; c++) {
-        const cell = new Cell(c, r, this.cw, this.ch)
-        const frame = new PIXI.Rectangle(
-          cell.frameX,
-          cell.frameY,
-          cell.width,
-          cell.height,
-        )
+        const frameX = c * this.cw
+        const frameY = r * this.ch
+
         const tex = new PIXI.Texture({
           source: this.texture.source,
-          frame,
+          frame: new PIXI.Rectangle(frameX, frameY, this.cw, this.ch),
         })
+        tex.dynamic = true
         const sprite = new PIXI.Sprite(tex)
-        sprite.x = cell.displayX
-        sprite.y = cell.displayY
-        cell.phase = Math.random() * Math.PI * 2
-        cell.lookX = 0
-        cell.lookY = 0
-        cell.sprite = sprite
-        this.cells.push(cell)
+        sprite.x = frameX
+        sprite.y = frameY
+
+        this.cells.push({
+          frameX,
+          frameY,
+          width: this.cw,
+          height: this.ch,
+          phase: Math.random() * Math.PI * 2,
+          lookX: 0,
+          lookY: 0,
+          frameRect: tex.frame,
+          tex,
+        })
         this.grid.addChild(sprite)
       }
     }
@@ -142,8 +133,8 @@ class MovingCells {
       const wobbleY = Math.sin(this.counter * 0.03 + cell.phase) * this.ch * 0.2
 
       if (this.mouseX !== null) {
-        const cx = cell.displayX + cell.width / 2
-        const cy = cell.displayY + cell.height / 2
+        const cx = cell.frameX + cell.width / 2
+        const cy = cell.frameY + cell.height / 2
         const ox = ((this.mouseX - cx) / (this.cols * this.cw)) * 2
         const oy = ((this.mouseY - cy) / (this.rows * this.ch)) * 2
         const tx = Math.max(-1, Math.min(1, ox)) * this.cw * 0.15
@@ -155,17 +146,10 @@ class MovingCells {
         cell.lookY *= 0.92
       }
 
-      const dx = wobbleX + cell.lookX
-      const dy = wobbleY + cell.lookY
-      cell.sprite.texture = new PIXI.Texture({
-        source: this.texture.source,
-        frame: new PIXI.Rectangle(
-          cell.frameX + dx,
-          cell.frameY + dy,
-          cell.width,
-          cell.height,
-        ),
-      })
+      cell.frameRect.x = cell.frameX + wobbleX + cell.lookX
+      cell.frameRect.y = cell.frameY + wobbleY + cell.lookY
+      cell.tex.updateUvs()
+      cell.tex.emit('update', cell.tex)
     }
   }
 }
