@@ -9,14 +9,26 @@ import BaseLayout from '../layouts/BaseLayout.astro'
   <h1>Skizzieren Sie Ihr Projekt</h1>
   <main>
     <form
-      action="https://formspree.io/f/manjljar"
+      id="send-form"
+      action="../send_mail.php"
       method="POST"
       aria-labelledby="contact-heading"
     >
       <fieldset>
-        <legend>Schreiben Sie ein, zwei kurze Sätze</legend>
+        <legend id="contact-heading">Formular für den Erstkontakt.</legend>
+        <input
+          type="tel"
+          name="fax"
+          id="fax"
+          aria-disabled="true"
+          style="display: none"
+        />
+        <input type="hidden" name="form-time" value="<?php echo time(); ?>" />
 
-        <label for="email">E-Mail</label>
+        <label for="email">E-Mail:</label>
+        <div id="email-hint">
+          Bitte Ihre E-Mailadresse, z.B. mensch.meier@meier-gmbh.de
+        </div>
         <input
           type="email"
           id="email"
@@ -27,6 +39,11 @@ import BaseLayout from '../layouts/BaseLayout.astro'
         />
 
         <label for="message">Nachricht</label>
+
+        <div id="message-hint">
+          Beschreiben Sie <strong>kurz </strong>Ihr Projekt oder Problem.<br />
+          Namen nicht vergessen. <strong>Details klären wir direkt.</strong>
+        </div>
         <textarea
           id="message"
           name="message"
@@ -35,10 +52,63 @@ import BaseLayout from '../layouts/BaseLayout.astro'
           aria-required="true"
           aria-describedby="message-hint"></textarea>
 
-        <button type="submit" aria-describedby="submit-hint"
-          >Nachricht senden</button
+        <button
+          class="button"
+          type="submit"
+          id="send-button"
+          aria-describedby="submit-hint">Nachricht senden</button
         >
+
+        <div id="submit-hint">Auf erfolgreiches Versenden folgt ein YEAH</div>
       </fieldset>
     </form>
+
+    <div role="status" id="send-status" style="display: none">
+      <p style="font-size: 30vh">YEAH</p>
+    </div>
   </main>
+  <script>
+    fetch('../get_time.php')
+      .then((r) => r.text())
+      .then((t) => {
+        document.getElementById(('form-time'.value = t))
+      })
+    const form = document.getElementById('send-form')
+    const submitButton = document.getElementById('send-button')
+    const sendstatus = document.getElementById('send-status')
+
+    form?.addEventListener('submit', async (e) => {
+      e.preventDefault()
+
+      const formData = new FormData(form)
+      const data = Object.fromEntries(formData)
+
+      submitButton.disabled = true
+      submitButton.textContent = 'Sende ...'
+      sendstatus.style.display = 'block'
+
+      try {
+        const response = await fetch('../send_mail.php', {
+          method: 'POST',
+          body: formData,
+        })
+
+        const result = await response.text()
+        if (response.ok) {
+          sendstatus.style.color = 'green'
+          sendstatus.innerHTML = `<p><strong>${result}</strong></p><p>Ich melde mich bald bei dir.</p>`
+          form.reset()
+        } else {
+          sendstatus.style.color = 'red'
+          sendstatus.textContent = result || 'ein fehler ist aufgetretten'
+        }
+      } catch (error) {
+        sendstatus.style.color = 'red'
+        sendstatus.textContent = 'Netzwerkfehler. Bitte prüfe deine Verbindung.'
+      } finally {
+        submitButton.disabled = false
+        submitButton.textContent = 'Nachricht Senden'
+      }
+    })
+  </script>
 </BaseLayout>

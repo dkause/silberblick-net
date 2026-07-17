@@ -1,34 +1,12 @@
-@media (width >= 735px) {
-    .sidebar > button {
-        display: none;
-    }
-
-}
-
-@media (width <= 827px) {
-    button {
-        display: block
-    }
-
-    header nav {
-        display: none;
-    }
-
-    [aria-expanded="true"] + nav {
-        display: block;
-    }
-}
-
 :root {
     --font-size: clamp(1rem, 18px + 1vh, 1.2rem);
-    --font-scale: 1.25;
     --line-height: 1.6;
     --satzspiegel: 60ch;
     --space: clamp(0.5rem, 1rem + 1vw, 2rem);
     --stack-space: calc(1rem * var(--line-height));
-    --font-sans: Bahnschrift, "DIN Alternate", "Franklin Gothic Medium",
-    "Nimbus Sans Narrow", sans-serif-condensed, sans-serif;
-    --font-serif: Optima, Candara, "Noto Sans", source-sans-pro, sans-serif;
+    --font-sans: Bahnschrift, 'DIN Alternate', 'Franklin Gothic Medium',
+    'Nimbus Sans Narrow', sans-serif-condensed, sans-serif;
+    --font-serif: Optima, Candara, 'Noto Sans', source-sans-pro, sans-serif;
     /* --- Colors --- */
     --silver: silver;
     --dark: #1a1a1a;
@@ -43,7 +21,6 @@
     padding: 0;
 }
 
-
 /* --- Standards --- */
 html,
 body,
@@ -53,11 +30,16 @@ nav,
 main,
 footer {
     max-inline-size: none;
-
 }
 
-p, aside, details, figcaption, figure, blockquote {
-    hyphens: none;
+p,
+aside,
+details,
+figcaption,
+figure,
+blockquote, ul, li {
+    hyphens: auto;
+    word-break: break-word;
     max-inline-size: var(--satzspiegel);
 }
 
@@ -65,13 +47,32 @@ p > a {
     margin-block-start: 0 !important;
 }
 
-input, textarea, select, button {
+input,
+textarea,
+select,
+button {
     font: inherit;
 }
 
 img {
-    max-width: 100%;
+    width: min(320px, 50%);
     height: auto;
+}
+
+article > h1, h2, h3, h4, h5, h6 {
+    border-block-end: var(--dark) solid 3px;
+    padding-block-end: 1em;
+    hyphens: none;
+}
+
+.hero > h1 {
+    border: none;
+    padding-block-end: 0.2em;
+}
+
+nav > h2 {
+    border: none;
+    padding-block-end: 0;
 }
 
 /* --- Base --- */
@@ -114,22 +115,41 @@ a:has(figure) {
 }
 
 /* --- UI --- */
+
 /* --- Mobile Menu Button --- */
 header.sidebar > button {
-    display: inline-flex;
     align-items: center;
-    justify-content: center;
-    gap: 0.25em;
     width: 100%;
     background-color: var(--dark);
     border: none;
     color: var(--silver);
     font-weight: bolder;
     font-size: calc(var(--font-size) * 1.25);
-    padding: .75em;
+    padding: 0.75em;
     margin-block-end: 2rem;
 }
 
+@media (width >= 735px) {
+    .sidebar > button {
+        display: none;
+    }
+}
+
+@media (width <= 734px) {
+    button {
+        display: inline-flex;
+        justify-content: center;
+        gap: 0.25em;
+    }
+
+    header nav {
+        display: none;
+    }
+
+    [aria-expanded='true'] + nav {
+        display: block;
+    }
+}
 
 /* --- Logo ---*/
 .logo {
@@ -149,7 +169,6 @@ header.sidebar > button {
     letter-spacing: 0.25rem;
 }
 
-
 /* --- bite --- */
 .bite::after {
     --bite-size: 20px;
@@ -166,7 +185,7 @@ header.sidebar > button {
 
 /* --- Hero --- */
 article.hero > h1 {
-    font-size: clamp(2rem, 3rem + 1vh, 5rem);
+    font-size: clamp(2rem, 4rem + 1vh, 6rem);
     max-inline-size: none;
 }
 
@@ -180,10 +199,30 @@ article.hero h1 > strong {
 }
 
 /* --- Form --- */
-form, label, input, textarea {
+form,
+label,
+input,
+textarea {
     display: block;
     width: 100%;
     max-width: var(--satzspiegel);
+}
+
+input {
+    line-height: 4.5ex;
+}
+
+label {
+    font-size: 1.5em;
+}
+
+fieldset {
+    padding: var(--space);
+}
+
+fieldset > legend {
+    padding-inline: 1em;
+    font-size: 2em;
 }
 
 /* --- Blockquote --- */
@@ -202,13 +241,11 @@ blockquote {
     text-transform: uppercase;
     text-decoration: none;
     padding: calc(var(--font-size) * 0.75);
-
 }
 
 .button::after {
     content: '>';
     padding-inline-start: 0.5em;
-
 }
 
 .button > a {
@@ -254,7 +291,7 @@ ul {
 }
 
 ul > li {
-    line-height: 1rem;
+    hyphens: none;
     padding-inline-start: 0;
 }
 
@@ -298,7 +335,9 @@ nav > ul {
     margin-block: 1em;
 }
 
-nav a, header a, footer a {
+nav a,
+header a,
+footer a {
     letter-spacing: 0.12em;
     transform: none;
     min-height: 44px;
