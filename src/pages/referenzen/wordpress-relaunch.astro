@@ -1,0 +1,111 @@
+---
+import { Image } from 'astro:assets'
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import CTA from '../../components/CTA.astro'
+import responsiveFlow from '../../assets/recherche-dienste-de.webp'
+import cardSort from '../../assets/CardSorting-1.gif'
+import treeResults from '../../assets/recherche-dienste_block-results_tree-1024x379.jpg'
+---
+
+<BaseLayout
+  title="Relaunch WordPress Webseite Recherche-Dienste.de"
+  description="Relaunch und Redesign WordPress für Dr David Hamnn - Recherche Dienste"
+>
+  <article>
+    <h1>WordPress Relaunch <br />Recherche-Dienste</h1>
+    <p>
+      Mit dem Historiker Dr. David Hamann habe ich die Website
+      "Recherche-Dienste.de" neu aufgesetzt - von der Klärung der
+      Informationsarchitektur durch die Zielgruppe bis zur passenden Technik.
+    </p>
+    <figure>
+      <Image src={responsiveFlow} alt={'responsives WordPress-Template'} />
+      <figcaption>
+        Passt sich an die Monitorgröße an: eigenes responsives
+        WordPress-Template für Dr. David Hamann.
+      </figcaption>
+    </figure>
+    <h2>Probleme</h2>
+    <ul>
+      <li>Die Website war nicht erreichbar</li>
+      <li>Die WordPress-Basis veraltet</li>
+      <li>Das Template war mobil kaum nutzbar</li>
+      <li>WordPress ist nur Feature, kein Service des Hosters</li>
+    </ul>
+    <h2>Lösung</h2>
+    <p>
+      Gebraucht wurde eine Lösung, die zur Arbeitsweise von David passt und
+      langfristig ohne technischen Ballast funktioniert.
+    </p>
+    <h3>User Research</h3><p>
+      Vor technischer und inhaltlicher Umsetzung klären wir Card Sort und Tree
+      Testing mit einer Nutzerbasis von zehn Personen die
+      Informationsarchitektur.
+    </p>
+    <h3>Card Sort</h3>
+    <Image
+      src={cardSort}
+      alt="Card Sort für den WordPress Relaunch der Webseite Recherche-Dienste.de"
+    />
+    <p>
+      Der Card Sort zeigt uns wie die Nutzer unser Begriffe und Kategorien
+      wahrnehmen. <strong>Wir vermeiden</strong> dadurch <strong
+        >Betriebsblindheit</strong
+      > und <strong>verringern die Absprungrate der Nutzer.</strong>
+    </p>
+    <h3>Tree Testing</h3>
+    <Image
+      src={treeResults}
+      alt="Ergebnisse eines Tree Testing für die Webseite Recherche-Dienste.de"
+    />
+    <p>
+      Wir schicken die Nutzer auf eine Reise durch unsere Navigation. Ein E-Mail
+      Formular findet sich schnell, aber wo befinden sich Informationen über die
+      deutsche Schreibschrift - Unter Bücher, Transkription oder Referenzen? <strong
+        >Tree Testing gibt die Antwort.</strong
+      >
+    </p>
+    <p>
+      Die UserResearch liefert uns passende Labels, Kategorien und
+      Navigationsstrukturen, diese bauen wir in die Informationsarchitektur ein.
+    </p>
+    <h2>Design</h2>
+    <p>
+      Im Design fließen die Informationsarchitektur und Davids Geschäftsmodell
+      zusammen:
+    </p>
+    <ul>
+      <li>Zielgruppe 55+, Desktop-first</li>
+      <li>Layout: textorientiert, Magazin-Stil</li>
+      <li>klassische Sidebar, die mobil ausgeblendet wird</li>
+      <li>
+        ruhige Typografie und Farbpalette (Ocker/Sepia) kommunizieren Fachgebiet
+      </li>
+      <li>klare Gliederung</li>
+    </ul>
+    <h2>Umsetzung</h2>
+    <ul>
+      <li>eigenes WordPress-Block-Theme</li>
+      <li>definierte Blöcke für Inhalte</li>
+      <li>
+        nur notwendige Plugins für:
+        <ul>
+          <li>Kontakt</li>
+          <li>SEO</li>
+          <li>Mehrsprachigkeit</li>
+        </ul>
+      </li>
+      <li>auf WordPress spezialisierter Hoster</li>
+      <li>DSVGO konform in Deutschland</li>
+      <li>einfache Updates und Backups</li>
+    </ul>
+    <h2>Ergebnis</h2>
+    <p>
+      Schon online und noch bevor alle Inhalte mehrsprachig eingepflegt sind,
+      generiert sie Leads aus Japan.
+      <br />Das Design ist zugänglich, barrierefrei und schafft Vertrauen<br />
+      David pflegt und erweitert Inhalte selbstständig, ohne große Einarbeitungszeit.
+    </p>
+  </article>
+  <CTA />
+</BaseLayout>

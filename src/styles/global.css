@@ -1,5 +1,5 @@
 :root {
-    --font-size: clamp(1rem, 18px + 1vh, 1.2rem);
+    --font-size: clamp(1rem, 0.93rem + 0.3vw, 1.2rem);
     --line-height: 1.6;
     --satzspiegel: 60ch;
     --space: clamp(0.5rem, 1rem + 1vw, 2rem);
@@ -55,7 +55,7 @@ button {
 }
 
 img {
-    width: min(320px, 50%);
+    width: max(320px, 50%);
     height: auto;
 }
 
@@ -84,6 +84,10 @@ article > h1 {
 .hero > h1 {
     border: none;
     padding-block-end: 0.2em;
+}
+
+h1 {
+    hyphens: none
 }
 
 nav > h2 {
@@ -184,6 +188,8 @@ header.sidebar > button {
     padding: var(--space);
     margin-block-end: var(--space);
     position: relative;
+    max-width: 100%;
+    overflow: hidden;
 }
 
 .logo a {
@@ -257,10 +263,11 @@ blockquote {
 /* --- Link-Button ---*/
 
 .button {
+    background-color: var(--silver);
     border: 6px solid var(--dark);
     border-radius: 3px;
     display: inline-flex;
-    font-size: calc(var(--font-size) * 1.25);
+    font-size: var(--font-size);
     align-items: center;
     text-transform: uppercase;
     text-decoration: none;
@@ -317,6 +324,7 @@ ul {
 ul > li {
     hyphens: none;
     padding-inline-start: 0;
+    --stack-space: var(--stack-space);
 }
 
 .grid {
