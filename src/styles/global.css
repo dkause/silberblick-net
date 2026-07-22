@@ -59,7 +59,23 @@ img {
     height: auto;
 }
 
-article > h1, h2, h3, h4, h5, h6 {
+
+figure > img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 2 / 1;
+    object-fit: cover;
+    object-position: 0 0;
+
+
+}
+
+figure > figcaption {
+    border: none;
+    font-size: 0.8em;
+}
+
+article > h1 {
     border-block-end: var(--dark) solid 3px;
     padding-block-end: 1em;
     hyphens: none;
@@ -112,6 +128,14 @@ a:hover {
 
 a:has(figure) {
     display: inline-block;
+}
+
+a.intern::before {
+    content: '>> \A0';
+}
+
+a.intern {
+    display: block;
 }
 
 /* --- UI --- */

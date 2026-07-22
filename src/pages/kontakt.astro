@@ -71,7 +71,7 @@ import BaseLayout from '../layouts/BaseLayout.astro'
     fetch('../get_time.php')
       .then((r) => r.text())
       .then((t) => {
-        document.getElementById(('form-time'.value = t))
+        document.getElementById('form-time').value = t
       })
     const form = document.getElementById('send-form')
     const submitButton = document.getElementById('send-button')
@@ -100,7 +100,7 @@ import BaseLayout from '../layouts/BaseLayout.astro'
           form.reset()
         } else {
           sendstatus.style.color = 'red'
-          sendstatus.textContent = result || 'ein fehler ist aufgetretten'
+          sendstatus.textContent = result || 'Ein Fehler ist aufgetreten'
         }
       } catch (error) {
         sendstatus.style.color = 'red'

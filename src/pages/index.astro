@@ -12,7 +12,7 @@ import CTA from '../components/CTA.astro'
 >
   <Logo />
   <section class="grid">
-    <div id="wobble" data-src={daniel.src} style="max-width:min(80%,27rem)">
+    <div id="wobble" data-src={daniel.src}>
       <Image src={daniel} alt="Portraitfoto Daniel Kause" />
     </div>
     <article class="hero">
@@ -33,7 +33,7 @@ import CTA from '../components/CTA.astro'
       <CTA />
     </article>
   </section>
-  <section class="grid" id="social-proof" style="display: none">
+  <section class="grid" id="social-proof" >
     <h2 style="display: block">Das sagen Kunden:</h2>
     <section>
       <h3>Recherche Dienste</h3>
@@ -104,7 +104,7 @@ import CTA from '../components/CTA.astro'
         </li>
       </ul>
     </article>
-  </section><section>
+  </section><section style="display: none">
     <h1>Warum mit mir Arbeiten?</h1><p>
       Ich brauche Geld und Sei brauchen gute Funktionierende Websites
     </p>
@@ -120,7 +120,8 @@ import CTA from '../components/CTA.astro'
   #wobble {
     width: 100%;
     aspect-ratio: 1;
-    align-self: start;
+    flex-shrink: 0;
+    align-self: center;
   }
 
   #wobble img {

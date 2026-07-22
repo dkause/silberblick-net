@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro'
 import { Image } from 'astro:assets'
-import RechercheDienste from '../../assets/recherche-dienste-webseite.png'
+import RechercheDienste from '../../assets/hamann.jpg'
 ---
 
 <BaseLayout
@@ -9,36 +9,32 @@ import RechercheDienste from '../../assets/recherche-dienste-webseite.png'
   description="Referenzen: Kundenprojekte und eigene Projekte"
   ><section>
     <h1>Kundenprojekte</h1>
-    <h2>WordPress: Wartung, Templates und Relaunch</h2>
-    <article id="recherche-dienste">
-      <h3>Recherche Dienste</h3>
-      <p>Relaunch der WordPress Seite von Dr. David Hamann.</p>
+    <article class="grid" id="recherche-dienste">
       <figure>
         <Image
           src={RechercheDienste}
-          alt="Screenshot Website Recherche Dienste"
+          alt="screenshot website recherche dienste"
         />
-        <figure>Screenshot der Webseite von Recherche-Dienste.de.</figure>
+        <figcaption>
+          Relaunch der WordPress-Webseite von Dr. David Damann:
+          recherche-dienste.de.
+        </figcaption>
       </figure>
-      <p>
-        Das ursprüngliche Design war auf dem Handy kaum zu bedienen und wurde
-        komplett neu aufgestellt und auf die Anforderungen eines
-        Solo-Selbstständigen ausgerichtet:
-      </p>
-      <ul>
-        <li>spezialisiertes WordPress-Hosting in Deutschland</li>
-        <li>eigenes Design, das von Handy bis Monitor Vertrauen ausstrahlt</li>
-        <li>Wartungsarm dank weniger Plugins und eigenem Theme</li>
-      </ul>
-      <a class="button" href="/webseiten/wordpress-relaunch"
-        >Den ganzen Ablauf finden sie hier</a
-      >
+      <div>
+        <h2>Recherche-Dienste</h2>
+        <p>
+          David Hamann habe ich geholfen, die kaputte WordPress-Seite in
+          kürzester Zeit wieder online zu bringen. Die geretteten Inhalte wurden
+          in ein neues Design überführt und sukzessive erneuert.
+          <a class="intern" href="/webseiten/wordpress-relaunch">Weiterlesen</a>
+        </p>
+      </div>
     </article>
-    <article id="SMartde">
-      <h3>SMartde.coop</h3>
+    <article id="smartde">
+      <h3>smartde.coop</h3>
       <p>
-        Für SMartde.coop warte ich die WordPress-Seite und sorge für eine
-        funktionierende Informationsarchitektur und Navigation. Das Team schickt
+        für smartde.coop warte ich die wordpress-seite und sorge für eine
+        funktionierende informationsarchitektur und Navigation. Das Team schickt
         mir eine E-Mail mit Problembeschreibung und ich löse das Problem.
       </p>
     </article>

@@ -1,6 +1,20 @@
 ---
 const { title, description } = Astro.props
 import { ClientRouter } from 'astro:transitions'
+// Person Schema Daniel
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  '@id': 'https://silberblick.net/#person',
+  name: 'Daniel Kause',
+  url: 'https://silberblick.net',
+  jobTitle: 'Web Developer & UX Designer',
+  sameAs: [
+    'https://silberblick.berlin',
+    'https://maps.app.goo.gl/4RY8EiGGve2Hw3948',
+    'https://de.linkedin.com/in/kause',
+  ],
+}
 ---
 
 <head>
@@ -10,6 +24,7 @@ import { ClientRouter } from 'astro:transitions'
   <meta name="viewport" content="width=device-width" />
   <meta name="generator" content={Astro.generator} />
   <meta name="description" content={description} />
+  <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
   <ClientRouter />
   <title>{title || 'Silberblick'}</title>
   <!-- Matomo Tag Manager -->
