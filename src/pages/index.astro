@@ -1,16 +1,17 @@
 ---
 import { Image } from 'astro:assets'
-import Logo from '../components/logo.astro'
 import daniel from '../assets/Daniel_Kause-Fotograf-1000px.jpg'
-import LandingPageLayout from '../layouts/LandingPageLayout.astro'
+import david from '../assets/Foto-David-Hamann.jpg'
+import LandingPageLayout from '../layouts/BaseLayout.astro'
 import CTA from '../components/CTA.astro'
+import Testimonial from '../components/testimonial.astro'
 ---
 
 <LandingPageLayout
   title="Daniel Kause - Webentwicklung und UX Design | Silberblick "
   description="Webseiten, schnell und barrierefrei, die von Suchmaschinen gefunden und Ihnen Kunden bringen"
+  landing
 >
-  <Logo />
   <section class="grid">
     <div id="wobble" data-src={daniel.src}>
       <Image src={daniel} alt="Portraitfoto Daniel Kause" />
@@ -22,9 +23,9 @@ import CTA from '../components/CTA.astro'
         >
       </h1>
       <p>
-        Silberblick ist eine <a href="/kause-biografie">Ein-Mensch-Agentur</a> und
-        baut mit Firmen, <a href="/referenzen/wordpress-relaunch"
-          >Solo-Selbständigen</a
+        Ich bin <a href="/kause-biografie">Daniel Kause</a> und Silberblick ist meine
+        "Ein-Mensch-Agentur" und baut mit Firmen, <a
+          href="/referenzen/wordpress-relaunch">Solo-Selbständigen</a
         > und <a href="/referenzen/#SMartde">Organisationen</a> Webseiten, die Kunden
         gewinnen, schnell und barrierefrei sind und von Suchmaschinen gefunden werden.
         <br />Wollen Sie mit mir zusammenarbeiten, dann beschreiben Sie mir in
@@ -35,17 +36,14 @@ import CTA from '../components/CTA.astro'
   </section>
   <section class="grid" id="social-proof">
     <h2 style="display: block">Das sagen Kunden:</h2>
-    <section>
-      <h3>Recherche Dienste</h3>
-      <blockquote>
-        <p>
-          Die neue Seite hat bereits nach wenigen Tagen Anfragen aus Japan
-          generiert. Sie funktioniert einwandfrei.
-        </p>
-      </blockquote>
-      <cite>Dr. David Hamann - Recherche-Dienste.de</cite>
-    </section>
-    <section>
+    <Testimonial
+      title="Recherche Dienste"
+      blockquote="Die neue Seite hat bereits nach wenigen Tagen online neue Anfragen aus Japan generiert."
+      cite="Dr. David Hamann - Recherche-Dienste"
+      image={david}
+      imageAlt="Portrait Dr. david Hamann"
+    />
+    <section style="display: none">
       <h3>SMartde.coop</h3>
       <blockquote>
         <p>
@@ -58,14 +56,14 @@ import CTA from '../components/CTA.astro'
   </section>
   <section id="services" style="--stack-space: 3rem" class="grid-grid">
     <article>
-      <h1>UX-Strategie</h1>
+      <h1>Nutzen</h1>
       <p>
         <strong>Mensch im Mittelpunkt!</strong><br />
-        Die Psychologie des Nutzers bestimmt den Erfolg Ihrer Website. Ich bringe
-        mit Methode und System durch hohe Usability Nutzer und Nutzen, Angebot und
-        Nachfrage zusammen.
+        Die Psychologie des Nutzers bestimmt den Erfolg Ihrer Website. Mit Methode
+        und System zur richtigen UX-Strategie, die hohe Usability und Geschäftsziele
+        zusammenbringt.
       </p>
-      <ul>
+      <ul class="stack-half">
         <li><a href="/webseiten/ux-strategie">UX Strategie</a></li>
         <li>Informationsarchitektur</li>
         <li>Design-Systeme</li>
@@ -73,14 +71,14 @@ import CTA from '../components/CTA.astro'
       </ul>
     </article>
     <article id="barrierefreiheit">
-      <h1>Barrierefreiheit</h1>
+      <h1>Erreichen</h1>
       <p>
         <strong>Webseiten für Alle!</strong><br />
         Zugänglichkeit ist wichtig: für große Firmen per Gesetz und kleine Firmen
-        profitieren von guter Usability und einem starkem Statement zur Inklusion
-        mit verbessertem Ranking.
+        profitieren von guter Usability und ein starkes Statement zur Inklusion mit
+        verbessertem Ranking.
       </p>
-      <ul>
+      <ul class="stack-half">
         <li>Accessibility-Tests</li>
         <li>Verständliche Texte</li>
         <li>Webstandards und Accessibility</li>
@@ -88,13 +86,13 @@ import CTA from '../components/CTA.astro'
       </ul>
     </article>
     <article>
-      <h1>Entwicklung</h1>
+      <h1>Sicherheit</h1>
       <p>
         <strong>Meine Daten sind meins!</strong><br />
-        DSVGO, Tracking, Cookies - diese Begriffe lösen Unsicherheit aus. Ich steigere
+        DSGVO, Tracking, Cookies - diese Begriffe lösen Unsicherheit aus. Ich steigere
         mit Focus auf europäische Datensouveränität Sicherheitsgefühl und Markenwert.
       </p>
-      <ul>
+      <ul class="stack-half">
         <li>WordPress, Astro, HTML und CSS</li>
         <li>Souveränes Hosting in Europa</li>
         <li>Systemberatung - Was brauche ich?</li>
@@ -103,10 +101,24 @@ import CTA from '../components/CTA.astro'
         </li>
       </ul>
     </article>
-  </section><section style="display: none">
-    <h1>Warum mit mir Arbeiten?</h1><p>
-      Ich brauche Geld und Sei brauchen gute Funktionierende Websites
-    </p>
+  </section><section id="kause">
+    <h1>Warum mit mir Arbeiten?</h1>
+    <div class="grid">
+      <ul class="stack-half">
+        <li>keine Buzzwords</li>
+        <li>kein Fachjargon</li>
+        <li>interdisziplinare Erfahrung</li><li>voller Focus aufs Projekt</li>
+      </ul>
+      <p>
+        Neben Expertise als Webentwickler und UX-Designer bringe ich Erfahrung
+        aus über 25 Jahren Selbständigkeit als Fotografenmeister mit.<br />
+        Als Entwickler und Fotograf denke ich von Anfang an Ästhetik, Technik, SEO
+        und Accessibility zusammen.
+      </p>
+      <div>
+        <CTA />
+      </div>
+    </div>
   </section>
 </LandingPageLayout>
 <script>
@@ -135,5 +147,8 @@ import CTA from '../components/CTA.astro'
 
   textarea {
     resize: vertical;
+  }
+  #kause > h1 {
+    display: block;
   }
 </style>

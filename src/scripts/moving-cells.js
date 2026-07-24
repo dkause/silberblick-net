@@ -123,7 +123,10 @@ class MovingCells {
     const w = this.container.clientWidth
     const h = this.container.clientHeight
     if (w !== this._lastW || h !== this._lastH) this.resize()
-    if (this.mouseX !== null && performance.now() - this._lastMoveTime > this._idleTimeout) {
+    if (
+      this.mouseX !== null &&
+      performance.now() - this._lastMoveTime > this._idleTimeout
+    ) {
       this.mouseX = null
       this.mouseY = null
     }

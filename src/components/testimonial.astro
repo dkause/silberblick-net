@@ -1,0 +1,16 @@
+---
+const { title, blockquote, cite, image, imageAlt } = Astro.props
+---
+
+<article class="testimonial">
+  <div>
+    <h3>{title}</h3>
+    <blockquote>
+      <p>
+        {blockquote}
+      </p>
+    </blockquote>
+    <cite>{cite}</cite>
+  </div>
+  <img src={image.src} alt="{imageAlt}" style="height: 9rem; width: 9rem;" />
+</article>
