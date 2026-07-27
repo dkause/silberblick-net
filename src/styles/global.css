@@ -1,3 +1,5 @@
+/* --- 1. Custom Properties --- */
+
 :root {
   --font-size: clamp(1rem, 0.93rem + 0.3vw, 1.2rem);
   --line-height: 1.6;
@@ -14,14 +16,18 @@
   --logo-skew: skewX(-18deg);
 }
 
-/* --- Reset ---*/
+/* --- 2. Reset --- */
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-/* --- Standards --- */
+/* --- 3. Base Elements --- */
+
+/* 3a. Body & Document */
+
 html,
 body,
 div,
@@ -32,74 +38,10 @@ footer {
   max-inline-size: none;
 }
 
-p,
-aside,
-details,
-figcaption,
-figure,
-blockquote,
-ul,
-li {
-  hyphens: auto;
-  word-break: break-word;
-  max-inline-size: var(--satzspiegel);
-}
-
-p > a {
-  margin-block-start: 0 !important;
-}
-
-input,
-textarea,
-select,
-button {
-  font: inherit;
-}
-
-img {
-  width: max(320px, 50%);
-  height: auto;
-}
-
-figure > img {
-  display: block;
-  width: 100%;
-  aspect-ratio: 2 / 1;
-  object-fit: cover;
-  object-position: 0 0;
-}
-
-figure > figcaption {
-  border: none;
-  font-size: 0.8em;
-}
-
-article > h1 {
-  border-block-end: var(--dark) solid 3px;
-  padding-block-end: 1em;
-  hyphens: none;
-}
-
-.hero > h1 {
-  border: none;
-  padding-block-end: 0.2em;
-}
-
-h1 {
-  hyphens: none;
-}
-
-nav > h2 {
-  border: none;
-  padding-block-end: 0;
-}
-
-/* --- Base --- */
-
 body {
   overflow-wrap: break-word;
   hyphens: auto;
-  font-family: var(--font-serif);
+  font-family: var(--font-serif), serif;
   font-size: var(--font-size);
   line-height: var(--line-height);
   color: var(--dark);
@@ -111,7 +53,39 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-/* --- Links --- */
+/* 3b. Typography */
+
+h1,h2,h3,h4,h5,h6 {
+
+  font-weight: 900;
+  font-family: var(--font-sans), sans-serif;
+  hyphens: none;
+}
+h1 {
+  font-size: 4em;
+}
+
+h2 {
+  font-size: 3em;
+}
+
+h3 {
+  font-size: 2em;
+}
+
+p,
+aside,
+details,
+figcaption,
+figure,
+blockquote,
+ul,
+li {
+  hyphens: auto;
+  max-inline-size: var(--satzspiegel);
+}
+
+/* 3c. Links */
 
 a {
   font-family: var(--font-sans), sans-serif;
@@ -141,9 +115,298 @@ a.intern {
   display: block;
 }
 
-/* --- UI --- */
+p > a {
+  margin-block-start: 0 !important;
+}
 
-/* --- Mobile Menu Button --- */
+/* 3d. Media */
+
+img {
+  width: max(320px, 50%);
+  height: auto;
+}
+
+figure > img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 2 / 1;
+  object-fit: cover;
+  object-position: 0 0;
+}
+
+figure > figcaption {
+  border: none;
+  font-size: 0.8em;
+}
+
+/* 3e. Form Elements */
+
+input,
+textarea,
+select,
+button {
+  font: inherit;
+}
+
+form,
+label,
+input,
+textarea {
+  display: block;
+  width: 100%;
+  max-width: var(--satzspiegel);
+}
+
+input {
+  line-height: 4.5ex;
+}
+
+label {
+  font-size: 1.5em;
+}
+
+fieldset {
+  padding: var(--space);
+}
+
+fieldset > legend {
+  padding-inline: 1em;
+  font-size: 2em;
+}
+
+/* 3f. Lists */
+
+ul {
+  list-style: square;
+  padding-inline-start: max(0.5rem, 1rem);
+}
+
+ul > li {
+  hyphens: none;
+  padding-inline-start: 0;
+}
+
+/* 3g. Blockquote */
+
+blockquote {
+  display: block;
+}
+
+/* --- 4. Layout Utilities --- */
+
+.stack * + * {
+  margin-block-start: var(--stack-space);
+}
+
+.stack-half * + * {
+  margin-block-start: calc(var(--stack-space) * 0.5);
+}
+
+.with-sidebar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space);
+}
+
+.sidebar {
+  flex-basis: 18rem;
+  flex-grow: 1;
+}
+
+.content {
+  flex-basis: 0;
+  flex-grow: 999;
+  min-inline-size: 50%;
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space);
+}
+
+.grid > * {
+  margin-block-start: 0;
+  flex: 1 1 20rem;
+}
+
+.grid > h2 {
+  flex: none;
+  width: 100%;
+}
+
+.grid-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30ex, auto));
+  gap: 2rem;
+}
+
+.grid-grid > * {
+  margin-block-start: 0;
+}
+
+/* --- 5. Components --- */
+
+/* 5a. Logo */
+
+.logo {
+  display: block;
+  color: var(--silver);
+  background-color: var(--dark);
+  font-size: calc(var(--font-size) * 1.7);
+  padding: var(--space);
+  margin-block-end: var(--space);
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.logo a {
+  padding-inline: min(1em, 1.5rem);
+  text-decoration: none;
+  transform: var(--logo-skew);
+  letter-spacing: 0.25rem;
+}
+
+.bite::after {
+  --bite-size: 20px;
+
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: var(--bite-size);
+  height: var(--bite-size);
+  border-right: var(--bite-size) solid var(--light);
+  border-bottom: var(--bite-size) solid var(--light);
+}
+
+/* 5b. Link-Button */
+
+.button {
+  background-color: var(--silver);
+  border: 6px solid var(--dark);
+  border-radius: 3px;
+  display: inline-flex;
+  font-size: var(--font-size);
+  align-items: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: calc(var(--font-size) * 0.75);
+}
+
+.button::after {
+  content: '>';
+  padding-inline-start: 0.5em;
+}
+
+.button > a {
+  display: block;
+}
+
+/* 5c. Article */
+
+article > h1 {
+  border-block-end: var(--dark) solid 3px;
+  padding-block-end: 1em;
+  hyphens: none;
+}
+
+/* 5d. Hero */
+
+.hero > h1 {
+  border: none;
+  padding-block-end: 0.2em;
+}
+
+article.hero > h1 {
+  font-size: clamp(2rem, 3.5rem + 1vh, 4.5rem);
+  max-inline-size: none;
+}
+
+article.hero h1 > strong {
+  display: block;
+  font-size: var(--font-size);
+}
+
+article.grid > em {
+  display: inline-block;
+}
+
+/* 5e. Testimonial Card */
+
+article.testimonial {
+  box-shadow: 0 4px 12px color-mix(in srgb, var(--silver), white 25%);
+  color: var(--dark);
+  border-radius: 6px;
+  padding: var(--space);
+  max-width: var(--satzspiegel);
+  overflow: auto;
+}
+
+article.testimonial img {
+  float: right;
+  max-width: 6em;
+  margin-inline-start: var(--space);
+  margin-block-end: var(--space);
+  border-radius: 25%;
+  shape-outside: circle(50%);
+}
+
+article.testimonial cite {
+  font-size: 0.8em;
+}
+
+article.testimonial div {
+  margin-block-start: 0;
+}
+
+/* 5f. Header & Navigation */
+
+header {
+  display: flex;
+  flex-flow: column wrap;
+  flex-grow: 0;
+  align-items: flex-start;
+  hyphens: manual;
+}
+
+nav > h2 {
+  border: none;
+  padding-block-end: 0;
+}
+
+nav h2 {
+  font-size: var(--font-size);
+  text-transform: uppercase;
+  font-weight: 800;
+}
+
+nav ul {
+  display: inline-block;
+  list-style: none;
+  padding: 0;
+  margin-block: 1em;
+}
+
+nav a,
+header a,
+footer a {
+  letter-spacing: 0.12em;
+  transform: none;
+  min-height: 44px;
+  text-decoration: none;
+}
+
+nav a:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--silver);
+}
+
+/* --- 6. Context Overrides --- */
+
+/* 6a. Mobile Menu Button */
+
 header.sidebar > button {
   align-items: center;
   width: 100%;
@@ -178,7 +441,7 @@ header.sidebar > button {
   }
 }
 
-/* --- LandingPage(index) menuButton always on!  */
+/* 6b. Landing Page */
 
 @media (width >= 735px) {
   body.landing header nav {
@@ -196,230 +459,4 @@ header.sidebar > button {
     flex-direction: row;
     gap: var(--space);
   }
-}
-
-/* --- Logo ---*/
-.logo {
-  display: inline-block;
-  color: var(--silver);
-  background-color: var(--dark);
-  font-size: calc(var(--font-size) * 1.7);
-  padding: var(--space);
-  margin-block-end: var(--space);
-  position: relative;
-  max-width: 100%;
-  overflow: hidden;
-}
-
-.logo a {
-  padding-inline: min(1em, 1.5rem);
-  text-decoration: none;
-  transform: var(--logo-skew);
-  letter-spacing: 0.25rem;
-}
-
-/* --- bite --- */
-.bite::after {
-  --bite-size: 20px;
-
-  content: '';
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: var(--bite-size);
-  height: var(--bite-size);
-  border-right: var(--bite-size) solid var(--light);
-  border-bottom: var(--bite-size) solid var(--light);
-}
-
-/* --- Hero --- */
-article.hero > h1 {
-  font-size: clamp(2rem, 4rem + 1vh, 6rem);
-  max-inline-size: none;
-}
-
-article.grid > em {
-  display: inline-block;
-}
-
-article.hero h1 > strong {
-  display: block;
-  font-size: var(--font-size);
-}
-
-/* --- Form --- */
-form,
-label,
-input,
-textarea {
-  display: block;
-  width: 100%;
-  max-width: var(--satzspiegel);
-}
-
-input {
-  line-height: 4.5ex;
-}
-
-label {
-  font-size: 1.5em;
-}
-
-fieldset {
-  padding: var(--space);
-}
-
-fieldset > legend {
-  padding-inline: 1em;
-  font-size: 2em;
-}
-
-/* --- Blockquote --- */
-blockquote {
-  display: block;
-}
-
-/* --- Testimonial Card --- */
-article.testimonial {
-  display: flex;
-  padding-inline: var(--space);
-  border: 6px solid var(--silver);
-  gap: var(--space);
-  max-width: var(--satzspiegel);
-}
-
-article.testimonial blockquote {
-  background-color: color(var(--silver));
-}
-
-article.testimonial cite {
-  font-size: 0.8em;
-}
-
-article.testimonial img {
-  margin-block-end: var(--space);
-  border-radius: 25%;
-}
-
-/* --- Link-Button ---*/
-
-.button {
-  background-color: var(--silver);
-  border: 6px solid var(--dark);
-  border-radius: 3px;
-  display: inline-flex;
-  font-size: var(--font-size);
-  align-items: center;
-  text-transform: uppercase;
-  text-decoration: none;
-  padding: calc(var(--font-size) * 0.75);
-}
-
-.button::after {
-  content: '>';
-  padding-inline-start: 0.5em;
-}
-
-.button > a {
-  display: block;
-}
-
-/* --- Layout -- */
-
-.stack * + * {
-  margin-block-start: var(--stack-space);
-}
-
-.stack-half * + * {
-  margin-block-start: calc(var(--stack-space) * 0.5);
-}
-
-.with-sidebar {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space);
-}
-
-.sidebar {
-  flex-basis: 18rem;
-  flex-grow: 1;
-}
-
-.content {
-  flex-basis: 0;
-  flex-grow: 999;
-  min-inline-size: 50%;
-}
-
-.grid-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(30ex, auto));
-  gap: 2rem;
-}
-
-.grid-grid > * {
-  margin-block-start: 0;
-}
-
-ul {
-  list-style: square;
-  padding-inline-start: max(0.5rem, 1rem);
-}
-
-ul > li {
-  hyphens: none;
-  padding-inline-start: 0;
-}
-
-.grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space);
-}
-
-.grid > * {
-  margin-block-start: 0;
-  flex: 1 1 20rem;
-}
-
-.grid > h2 {
-  flex: none;
-  width: 100%;
-}
-
-/* --- Header & Navigation --- */
-
-header {
-  display: flex;
-  flex-flow: column wrap;
-  flex-grow: 0;
-  align-items: flex-start;
-  hyphens: manual;
-}
-
-nav h2 {
-  font-size: var(--font-size);
-  text-transform: uppercase;
-  font-weight: 800;
-}
-
-nav ul {
-  display: inline-block;
-  list-style: none;
-  padding: 0;
-  margin-block: 1em;
-}
-
-nav a,
-header a,
-footer a {
-  letter-spacing: 0.12em;
-  transform: none;
-  min-height: 44px;
-  text-decoration: none;
-}
-
-nav a:hover {
-  text-decoration-color: var(--dark);
-  text-decoration: underline;
 }

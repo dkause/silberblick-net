@@ -1,0 +1,70 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import CTA from '../../components/CTA.astro'
+import { Image } from 'astro:assets'
+import lighthousesmart from '../../assets/lighthouse-smart.png'
+import screen from '../../assets/smartde.coop-screen.png'
+---
+
+<BaseLayout>
+  <h1>WordPress Wartung und Updates für SMartde.coop.</h1>
+  <p>
+    SMartde.coop ist die Website der Genossenschaft für Selbständige.<br />Die
+    Benutzererfahrung war nicht einheitlich über alle Bildschirmgrößen und es
+    gab Fehler in der Barrierefreiheit. Das WordPress-Backend war durch viele
+    Plugins und Pagebuilder unübersichtlich und schwer zu bedienen
+  </p>
+  <figure>
+    <Image
+      src={screen}
+      alt="Screenshot von https://smartde.coop. Stand 24.7.2026 "
+    />
+    <figcaption>
+      <p>
+        Screenshot der Webseite von <a href="https://smartde.coop"
+          >SMartde.coop</a
+        >
+      </p>
+    </figcaption>
+  </figure>
+  <article>
+    <h2>Problem: Layoutfehler im Design</h2>
+    <p>
+      Das Layout passte sich nicht dynamisch an und erzeugte Overflows in der
+      mobilen Ansicht.
+    </p>
+
+    <h2>Lösung: progressive Verbesserung von Struktur und Inhalten</h2>
+    <ul>
+      <li>Quickfix der gröbsten Fehler im Stylesheet</li>
+      <li>Vereinheitlichung der Inhaltsstruktur</li>
+      <li>Reduzieren von Redundanzen und Vereinfachung des Content</li>
+      <li>Verbesserung der Informationsarchitektur</li>
+    </ul>
+    <p><strong>Nebeneffekt: Die Zahl der Plugins wurde reduziert.</strong></p>
+  </article>
+  <article>
+    <h2>Probleme mit der Barrierefreiheit</h2>
+    <p>
+      SMartde.coop ist aufgrund der Unternehmensgröße verpflichtet Standards für
+      Barrierefreiheit einzuhalten.
+    </p>
+    <h2>Lösung:</h2><ul>
+      <li>Verbesserung der Farbkontraste</li>
+      <li>Klare Labels und Links</li>
+      <li>Semantisches Html für barrierefreie Elemente</li>
+    </ul>
+  </article>
+  <figure>
+    <Image
+      src={lighthousesmart}
+      alt="Lighthouse Score von https://smartde.coop. Stand 24.7.2026"
+    />
+    <figcaption>
+      <p>
+        Nicht perfekt - aber sehr dicht dran! Lighthouse Score Stand: 24.7.2026
+      </p>
+    </figcaption>
+  </figure>
+  <CTA />
+</BaseLayout>

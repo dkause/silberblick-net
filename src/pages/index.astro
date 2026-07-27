@@ -19,15 +19,16 @@ import Testimonial from '../components/testimonial.astro'
     <article class="hero">
       <h1>
         Webseiten, die für Sie arbeiten.<strong
-          >Nicht Sie für die Webseite.</strong
-        >
+      >Nicht Sie für die Webseite.</strong
+      >
       </h1>
       <p>
         Ich bin <a href="/kause-biografie">Daniel Kause</a> und Silberblick ist meine
         "Ein-Mensch-Agentur" und baut mit Firmen, <a
-          href="/referenzen/wordpress-relaunch">Solo-Selbständigen</a
-        > und <a href="/referenzen/#SMartde">Organisationen</a> Webseiten, die Kunden
-        gewinnen, schnell und barrierefrei sind und von Suchmaschinen gefunden werden.
+        href="/referenzen/wordpress-relaunch">Solo-Selbständigen</a
+      > und <a href="/referenzen/smartde-maintainer">Organisationen</a> Webseiten,
+        die Kunden gewinnen, schnell und barrierefrei sind und von Suchmaschinen gefunden
+        werden.
         <br />Wollen Sie mit mir zusammenarbeiten, dann beschreiben Sie mir in
         einer E-Mail kurz das Projekt.
       </p>
@@ -38,10 +39,10 @@ import Testimonial from '../components/testimonial.astro'
     <h2 style="display: block">Das sagen Kunden:</h2>
     <Testimonial
       title="Recherche Dienste"
-      blockquote="Die neue Seite hat bereits nach wenigen Tagen online neue Anfragen aus Japan generiert."
+      blockquote="Die neue Homepage ist ein Segen. Binnen kürzester Zeit hat sie große internationale Resonanz erzielt und die Anzahl der Anfragen hat sich mehr als verdoppelt."
       cite="Dr. David Hamann - Recherche-Dienste"
       image={david}
-      imageAlt="Portrait Dr. david Hamann"
+      imageAlt="Portrait Dr. David Hamann"
     />
     <section style="display: none">
       <h3>SMartde.coop</h3>
@@ -55,44 +56,44 @@ import Testimonial from '../components/testimonial.astro'
     </section>
   </section>
   <section id="services" style="--stack-space: 3rem" class="grid-grid">
-    <article>
-      <h1>Nutzen</h1>
+    <article class="stack-half">
+      <h2>Nutzen</h2>
       <p>
         <strong>Mensch im Mittelpunkt!</strong><br />
         Die Psychologie des Nutzers bestimmt den Erfolg Ihrer Website. Mit Methode
         und System zur richtigen UX-Strategie, die hohe Usability und Geschäftsziele
         zusammenbringt.
       </p>
-      <ul class="stack-half">
+      <ul >
         <li><a href="/webseiten/ux-strategie">UX Strategie</a></li>
         <li>Informationsarchitektur</li>
         <li>Design-Systeme</li>
         <li><strong>Glänzen ohne zu Blenden</strong></li>
       </ul>
     </article>
-    <article id="barrierefreiheit">
-      <h1>Erreichen</h1>
+    <article  class="stack-half" id="barrierefreiheit">
+      <h2>Erreichen</h2>
       <p>
         <strong>Webseiten für Alle!</strong><br />
         Zugänglichkeit ist wichtig: für große Firmen per Gesetz und kleine Firmen
         profitieren von guter Usability und ein starkes Statement zur Inklusion mit
         verbessertem Ranking.
       </p>
-      <ul class="stack-half">
+      <ul>
         <li>Accessibility-Tests</li>
         <li>Verständliche Texte</li>
         <li>Webstandards und Accessibility</li>
         <li><strong>Einfach ist besser</strong></li>
       </ul>
     </article>
-    <article>
-      <h1>Sicherheit</h1>
+    <article class="stack-half">
+      <h2>Sicherheit</h2>
       <p>
         <strong>Meine Daten sind meins!</strong><br />
         DSGVO, Tracking, Cookies - diese Begriffe lösen Unsicherheit aus. Ich steigere
-        mit Focus auf europäische Datensouveränität Sicherheitsgefühl und Markenwert.
+        mit Fokus auf europäische Datensouveränität Sicherheitsgefühl und Markenwert.
       </p>
-      <ul class="stack-half">
+      <ul>
         <li>WordPress, Astro, HTML und CSS</li>
         <li>Souveränes Hosting in Europa</li>
         <li>Systemberatung - Was brauche ich?</li>
@@ -101,13 +102,15 @@ import Testimonial from '../components/testimonial.astro'
         </li>
       </ul>
     </article>
-  </section><section id="kause">
-    <h1>Warum mit mir Arbeiten?</h1>
+  </section>
+  <section id="kause">
+    <h2>Warum mit mir Arbeiten?</h2>
     <div class="grid">
       <ul class="stack-half">
         <li>keine Buzzwords</li>
         <li>kein Fachjargon</li>
-        <li>interdisziplinare Erfahrung</li><li>voller Focus aufs Projekt</li>
+        <li>interdisziplinäre Erfahrung</li>
+        <li>voller Fokus aufs Projekt</li>
       </ul>
       <p>
         Neben Expertise als Webentwickler und UX-Designer bringe ich Erfahrung
@@ -123,16 +126,37 @@ import Testimonial from '../components/testimonial.astro'
 </LandingPageLayout>
 <script>
   import { initMovingCells } from '../scripts/moving-cells'
-  const container = document.getElementById('wobble')
-  if (container) initMovingCells(container)
+
+  let instance = null
+
+  function setup() {
+    if (instance) instance.destroy()
+    const container = document.getElementById('wobble')
+    if (container) initMovingCells(container)
+  }
+  function cleanup() {
+    if (instance) {
+      instance.destroy()
+      instance = null
+    }
+  }
+  document.addEventListener('astro:page-load', setup)
+  document.addEventListener('astro:before-swap', cleanup)
+
 </script>
 
 <style>
+  body.landing > :global(header.sidebar) {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+  }
+
   #wobble {
-    width: 100%;
+   max-width:18rem;
     aspect-ratio: 1;
     flex-shrink: 0;
-    align-self: center;
+    align-self:flex-start ;
   }
 
   #wobble img {
@@ -148,7 +172,8 @@ import Testimonial from '../components/testimonial.astro'
   textarea {
     resize: vertical;
   }
-  #kause > h1 {
+
+  #kause > h2 {
     display: block;
   }
 </style>
