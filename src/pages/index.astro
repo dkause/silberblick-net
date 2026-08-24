@@ -2,12 +2,12 @@
 import { Image } from 'astro:assets'
 import daniel from '../assets/Daniel_Kause-Fotograf-1000px.jpg'
 import david from '../assets/Foto-David-Hamann.jpg'
-import LandingPageLayout from '../layouts/BaseLayout.astro'
+import BaseLayout from '../layouts/BaseLayout.astro'
 import CTA from '../components/CTA.astro'
 import Testimonial from '../components/testimonial.astro'
 ---
 
-<LandingPageLayout
+<BaseLayout
   title="Daniel Kause - Webentwicklung und UX Design | Silberblick "
   description="Webseiten, schnell und barrierefrei, die von Suchmaschinen gefunden und Ihnen Kunden bringen"
   landing
@@ -19,18 +19,16 @@ import Testimonial from '../components/testimonial.astro'
     <article class="hero">
       <h1>
         Webseiten, die für Sie arbeiten.<strong
-      >Nicht Sie für die Webseite.</strong
-      >
+          >Nicht Sie für die Webseite.</strong
+        >
       </h1>
       <p>
-        Ich bin <a href="/kause-biografie">Daniel Kause</a> und Silberblick ist meine
-        "Ein-Mensch-Agentur" und baut mit Firmen, <a
-        href="/referenzen/wordpress-relaunch">Solo-Selbständigen</a
-      > und <a href="/referenzen/smartde-maintainer">Organisationen</a> Webseiten,
+        Ich bin <a href="/kause-biografie">Daniel Kause</a> baue mit Firmen, <a
+          href="/referenzen/wordpress-relaunch">Solo-Selbständigen</a
+        > und <a href="/referenzen/smartde-maintainer">Organisationen</a> Webseiten,
         die Kunden gewinnen, schnell und barrierefrei sind und von Suchmaschinen gefunden
         werden.
-        <br />Wollen Sie mit mir zusammenarbeiten, dann beschreiben Sie mir in
-        einer E-Mail kurz das Projekt.
+        <br /><strong>Zusammenarbeiten?</strong>
       </p>
       <CTA />
     </article>
@@ -61,18 +59,18 @@ import Testimonial from '../components/testimonial.astro'
       <p>
         <strong>Mensch im Mittelpunkt!</strong><br />
         Die Psychologie des Nutzers bestimmt den Erfolg Ihrer Website. Mit Methode
-        und System zur richtigen UX-Strategie, die hohe Usability und Geschäftsziele
+        und System zur richtigen Strategie, die hohe User-Experience und Geschäftsziele
         zusammenbringt.
       </p>
-      <ul >
+      <ul>
         <li><a href="/webseiten/ux-strategie">UX Strategie</a></li>
         <li>Informationsarchitektur</li>
         <li>Design-Systeme</li>
         <li><strong>Glänzen ohne zu Blenden</strong></li>
       </ul>
     </article>
-    <article  class="stack-half" id="barrierefreiheit">
-      <h2>Erreichen</h2>
+    <article class="stack-half" id="barrierefreiheit">
+      <h2>Erreichbarkeit</h2>
       <p>
         <strong>Webseiten für Alle!</strong><br />
         Zugänglichkeit ist wichtig: für große Firmen per Gesetz und kleine Firmen
@@ -81,8 +79,8 @@ import Testimonial from '../components/testimonial.astro'
       </p>
       <ul>
         <li>Accessibility-Tests</li>
-        <li>Verständliche Texte</li>
-        <li>Webstandards und Accessibility</li>
+        <li>SEO und JSON-LD</li>
+        <li>Webstandards und Semantik</li>
         <li><strong>Einfach ist besser</strong></li>
       </ul>
     </article>
@@ -90,8 +88,8 @@ import Testimonial from '../components/testimonial.astro'
       <h2>Sicherheit</h2>
       <p>
         <strong>Meine Daten sind meins!</strong><br />
-        DSGVO, Tracking, Cookies - diese Begriffe lösen Unsicherheit aus. Ich steigere
-        mit Fokus auf europäische Datensouveränität Sicherheitsgefühl und Markenwert.
+        DSGVO, Tracking, Cookies - diese Begriffe lösen Unsicherheit aus. Steigern
+        wir durch europäische Datensouveränität Sicherheitsgefühl und Markenwert.
       </p>
       <ul>
         <li>WordPress, Astro, HTML und CSS</li>
@@ -123,7 +121,7 @@ import Testimonial from '../components/testimonial.astro'
       </div>
     </div>
   </section>
-</LandingPageLayout>
+</BaseLayout>
 <script>
   import { initMovingCells } from '../scripts/moving-cells'
 
@@ -142,7 +140,6 @@ import Testimonial from '../components/testimonial.astro'
   }
   document.addEventListener('astro:page-load', setup)
   document.addEventListener('astro:before-swap', cleanup)
-
 </script>
 
 <style>
@@ -153,10 +150,10 @@ import Testimonial from '../components/testimonial.astro'
   }
 
   #wobble {
-   max-width:18rem;
+    max-width: 18rem;
     aspect-ratio: 1;
     flex-shrink: 0;
-    align-self:flex-start ;
+    align-self: flex-start;
   }
 
   #wobble img {

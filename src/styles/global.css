@@ -6,8 +6,9 @@
   --satzspiegel: 60ch;
   --space: clamp(0.5rem, 1rem + 1vw, 2rem);
   --stack-space: calc(1rem * var(--line-height));
-  --font-sans: Bahnschrift, 'DIN Alternate', 'Franklin Gothic Medium',
-  'Nimbus Sans Narrow', sans-serif-condensed, sans-serif;
+  --font-sans:
+    Bahnschrift, 'DIN Alternate', 'Franklin Gothic Medium',
+    'Nimbus Sans Narrow', sans-serif-condensed, sans-serif;
   --font-serif: Optima, Candara, 'Noto Sans', source-sans-pro, sans-serif;
   /* --- Colors --- */
   --silver: silver;
@@ -46,7 +47,6 @@ body {
   line-height: var(--line-height);
   color: var(--dark);
   background: var(--light);
-  padding: var(--space);
   margin-inline: auto;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -55,8 +55,12 @@ body {
 
 /* 3b. Typography */
 
-h1,h2,h3,h4,h5,h6 {
-
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: 900;
   font-family: var(--font-sans), sans-serif;
   hyphens: none;
@@ -112,11 +116,12 @@ a.intern::before {
 }
 
 a.intern {
+  margin-block-start: var(--space);
   display: block;
 }
 
-p > a {
-  margin-block-start: 0 !important;
+p > a:not(.intern) {
+  margin-block-start: 0;
 }
 
 /* 3d. Media */
@@ -216,7 +221,10 @@ blockquote {
 .content {
   flex-basis: 0;
   flex-grow: 999;
-  min-inline-size: 50%;
+  inline-size: min(100%, 1440px);
+  max-inline-size: 1180px;
+  margin-inline: auto;
+  margin-block-start: var(--space);
 }
 
 .grid {
@@ -251,14 +259,11 @@ blockquote {
 
 .logo {
   display: block;
-  color: var(--silver);
-  background-color: var(--dark);
   font-size: calc(var(--font-size) * 1.7);
-  padding: var(--space);
-  margin-block-end: var(--space);
   position: relative;
-  width: 100%;
   overflow: hidden;
+  grid-column: 2;
+  grid-row: 1;
 }
 
 .logo a {
@@ -268,11 +273,16 @@ blockquote {
   letter-spacing: 0.25rem;
 }
 
+.bite {
+  position: relative;
+}
 .bite::after {
   --bite-size: 20px;
 
   content: '';
   position: absolute;
+  grid-column: 2;
+  grid-row: 1;
   bottom: 0;
   right: 0;
   width: var(--bite-size);
@@ -364,13 +374,19 @@ article.testimonial div {
 /* 5f. Header & Navigation */
 
 header {
-  display: flex;
-  flex-flow: column wrap;
-  flex-grow: 0;
-  align-items: flex-start;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  width: 100%;
   hyphens: manual;
+  color: var(--silver);
+  background-color: var(--dark);
 }
-
+header > nav {
+  grid-column: 1/ -1;
+  grid-row: 2;
+  display: none;
+}
 nav > h2 {
   border: none;
   padding-block-end: 0;
@@ -407,56 +423,32 @@ nav a:hover {
 
 /* 6a. Mobile Menu Button */
 
-header.sidebar > button {
+header > button {
+  grid-column: 1;
+  grid-row: 1;
+  display: inline-flex;
+  justify-content: center;
   align-items: center;
-  width: 100%;
   background-color: var(--dark);
   border: none;
   color: var(--silver);
   font-weight: bolder;
   font-size: calc(var(--font-size) * 1.25);
   padding: 0.75em;
-  margin-block-end: 2rem;
+  gap: 0.25em;
 }
 
-@media (width >= 735px) {
-  .sidebar > button {
-    display: none;
-  }
-}
+[aria-expanded='true'] + nav {
+  display: flex;
+  gap: var(--space);
+  padding: var(--space);
+  /* 6b. Landing Page */
 
-@media (width <= 734px) {
-  button {
-    display: inline-flex;
-    justify-content: center;
-    gap: 0.25em;
-  }
-
-  header nav {
-    display: none;
-  }
-
-  [aria-expanded='true'] + nav {
-    display: block;
-  }
-}
-
-/* 6b. Landing Page */
-
-@media (width >= 735px) {
-  body.landing header nav {
-    display: none;
-  }
-
-  body.landing .sidebar > button {
-    display: inline-flex;
-    gap: 0.25em;
-    max-width: fit-content;
-  }
-
-  body.landing [aria-expanded='true'] + nav {
-    display: flex;
-    flex-direction: row;
-    gap: var(--space);
+  @media (width >= 735px) {
+    body [aria-expanded='true'] + nav {
+      display: flex;
+      flex-direction: row;
+      gap: var(--space);
+    }
   }
 }
