@@ -9,11 +9,12 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "deploy": "rsync -avz --delete --exclude=vendor --exclude=composer.json --exclude=composer.lock --exclude=send_mail.php --exclude=get_time.php dist/ slb:sites/silberblick.net/"
   },
   "dependencies": {
-    "@astrojs/sitemap": "^3.7.3",
-    "astro": "^7.2.4",
+    "@astrojs/sitemap": "^3.7.4",
+    "astro": "^7.3.5",
     "pixi.js": "^8.19.0"
   },
   "devDependencies": {

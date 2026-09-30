@@ -1,9 +1,10 @@
 ---
+import { Image } from 'astro:assets'
 const { title, blockquote, cite, image, imageAlt } = Astro.props
 ---
 
 <article class="testimonial">
-  <img src={image.src} alt="{imageAlt}" style="width: 9rem;" />
+  <Image src={image} alt={imageAlt} loading="eager" style="width: 9rem;" />
   <div>
     <h3>{title}</h3>
     <blockquote>

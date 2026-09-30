@@ -6,39 +6,22 @@ const currentPath = Astro.url.pathname
   onclick="this.setAttribute('aria-expanded', this.getAttribute('aria-expanded') === 'true' ? 'false' : 'true')"
   aria-expanded="false"
 >
-  <svg
-    focusable="false"
-    viewBox="0 0 32 32"
-    height="1em"
-    style="vertical-align: middle;"
-  >
-    <path d="M3 6h26 M3 16h26 M3 26h26" stroke="currentColor" stroke-width="3"
-    ></path>
-  </svg><div> Menu</div></button
+  <svg focusable="false" viewBox="0 0 32 32" height="1em" style="vertical-align: middle;">
+    <path d="M3 6h26 M3 16h26 M3 26h26" stroke="currentColor" stroke-width="3"></path>
+  </svg></button
 >
 <nav aria-label="Hauptnavigation">
   <div>
     <h2>Über Silberblick</h2><ul>
       <li>
-        <a
-          href="/referenzen"
-          aria-current={currentPath === '/referenzen' ? 'page' : undefined}
-          >Referenzen</a
-        >
+        <a href="/referenzen" aria-current={currentPath === '/referenzen' ? 'page' : undefined}>Referenzen</a>
       </li>
       <li>
-        <a
-          href="/zertifikate"
-          aria-current={currentPath === '/zertifikaten' ? 'page' : undefined}
-          >Zertifikate</a
-        >
+        <a href="/zertifikate" aria-current={currentPath === '/zertifikaten' ? 'page' : undefined}>Zertifikate</a>
       </li>
       <li>
-        <a
-          href="/kause-biografie"
-          aria-current={currentPath === '/kause-biographie'
-            ? 'page'
-            : undefined}>Kause (Bio)</a
+        <a href="/kause-biografie" aria-current={currentPath === '/kause-biographie' ? 'page' : undefined}
+          >Kause (Bio)</a
         >
       </li>
     </ul>
@@ -46,71 +29,37 @@ const currentPath = Astro.url.pathname
   <div>
     <h2>Webseiten</h2><ul>
       <li>
-        <a
-          href="/webseiten/ux-strategie"
-          aria-current={currentPath === '/webseiten/ux-strategie'
-            ? 'page'
-            : undefined}>UX-Strategie</a
+        <a href="/webseiten/ux-strategie" aria-current={currentPath === '/webseiten/ux-strategie' ? 'page' : undefined}
+          >UX-Strategie</a
         >
       </li>
       <li>
-        <a
-          href="/webseiten/wordPress"
-          aria-current={currentPath === '/webseiten/wordPress'
-            ? 'page'
-            : undefined}>WordPress</a
+        <a href="/webseiten/wordPress" aria-current={currentPath === '/webseiten/wordPress' ? 'page' : undefined}
+          >WordPress</a
         >
       </li>
       <li>
-        <a
-          href="/webseiten/handarbeit"
-          aria-current={currentPath === '/webseiten/handarbeit'
-            ? 'page'
-            : undefined}>Handarbeit</a
+        <a href="/webseiten/handarbeit" aria-current={currentPath === '/webseiten/handarbeit' ? 'page' : undefined}
+          >Handarbeit</a
         >
       </li>
       <li>
-        <a
-          href="/webseiten/preise"
-          aria-current={currentPath === '/webseiten/preise'
-            ? 'page'
-            : undefined}>Preise</a
-        >
+        <a href="/webseiten/preise" aria-current={currentPath === '/webseiten/preise' ? 'page' : undefined}>Preise</a>
       </li>
     </ul>
   </div>
   <div>
     <h2>Legales</h2><ul>
       <li>
-        <a
-          href="/legales/smartde"
-          aria-current={currentPath === '/legales/smartde' ? 'page' : undefined}
-          >SMartde</a
+        <a href="/legales/datenschutz" aria-current={currentPath === '/legales/datenschutz' ? 'page' : undefined}
+          >Datenschutz</a
         >
       </li>
       <li>
-        <a
-          href="/legales/datenschutz"
-          aria-current={currentPath === '/legales/datenschutz'
-            ? 'page'
-            : undefined}>Datenschutz</a
+        <a href="/legales/impressum" aria-current={currentPath === '/legales/impressum' ? 'page' : undefined}
+          >Impressum</a
         >
       </li>
-      <li>
-        <a
-          href="/legales/impressum"
-          aria-current={currentPath === '/legales/impressum'
-            ? 'page'
-            : undefined}>Impressum</a
-        >
-      </li>
-    </ul>
-  </div>
-  <div>
-    <h2>Socials</h2><ul>
-      <li><a href="https://de.pinterest.com/danielkause/">Pinterest</a></li>
-      <li><a href="https://www.instagram.com/daniel_kause/">Instagram</a></li>
-      <li><a href="https://www.linkedin.com/in/kause/">LinkedIn</a></li>
     </ul>
   </div>
 </nav>

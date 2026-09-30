@@ -82,10 +82,7 @@ class MovingCells {
     const vpH = this.container.clientHeight
     const scale = Math.min(vpW / gridW, vpH / gridH)
 
-    this.app.renderer.resize(
-      Math.round(gridW * scale),
-      Math.round(gridH * scale),
-    )
+    this.app.renderer.resize(Math.round(gridW * scale), Math.round(gridH * scale))
     this.grid.scale.set(scale)
     this._lastW = this.container.clientWidth
     this._lastH = this.container.clientHeight
@@ -112,10 +109,7 @@ class MovingCells {
     const gridW = this.cols * this.cw
     const gridH = this.rows * this.ch
     const scale = Math.min(this._lastW / gridW, this._lastH / gridH)
-    this.app.renderer.resize(
-      Math.round(gridW * scale),
-      Math.round(gridH * scale),
-    )
+    this.app.renderer.resize(Math.round(gridW * scale), Math.round(gridH * scale))
     this.grid.scale.set(scale)
   }
 
@@ -123,10 +117,7 @@ class MovingCells {
     const w = this.container.clientWidth
     const h = this.container.clientHeight
     if (w !== this._lastW || h !== this._lastH) this.resize()
-    if (
-      this.mouseX !== null &&
-      performance.now() - this._lastMoveTime > this._idleTimeout
-    ) {
+    if (this.mouseX !== null && performance.now() - this._lastMoveTime > this._idleTimeout) {
       this.mouseX = null
       this.mouseY = null
     }

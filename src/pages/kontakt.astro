@@ -8,18 +8,12 @@ import BaseLayout from '../layouts/BaseLayout.astro'
 >
   <h1>Skizzieren Sie mir Ihr Projekt</h1>
   <p>
-    Ich antworte in der Regel innerhalb von ein bis zwei Tagen. Hinterlassen Sie
-    am Telefon unbedingt eine kurze Nachricht, nur dann rufe ich zurück.<br />
-    <strong>Ziel: </strong>Ich verschaffe mir einen Überblick und wir klären
-    Details im Dialog.
+    Ich antworte in der Regel innerhalb von ein bis zwei Tagen. Hinterlassen Sie am Telefon unbedingt eine kurze
+    Nachricht, nur dann rufe ich zurück.<br />
+    <strong>Ziel: </strong>Ich verschaffe mir einen Überblick und wir klären Details im Dialog.
   </p>
   <main>
-    <form
-      id="send-form"
-      action="../send_mail.php"
-      method="POST"
-      aria-labelledby="contact-heading"
-    >
+    <form id="send-form" action="../send_mail.php" method="POST" aria-labelledby="contact-heading">
       <fieldset>
         <legend id="contact-heading">Bitte Ausfüllen:</legend>
         <input
@@ -35,35 +29,19 @@ import BaseLayout from '../layouts/BaseLayout.astro'
 
         <label for="email">E-Mail:</label>
         <div id="email-hint">z.B. mensch.meier@meier-gmbh.de</div>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          required=""
-          aria-required="true"
-          aria-describedby="email-hint"
-        />
+        <input type="email" id="email" name="email" required="" aria-required="true" aria-describedby="email-hint" />
 
         <label for="message">Nachricht</label>
 
         <div id="message-hint">
-          Beschreiben Sie Projekt oder Problem - Ihren Namen und URL nicht
-          vergessen. <strong>Details klären wir im Dialog.</strong>
+          Beschreiben Sie Projekt oder Problem - Ihren Namen und URL nicht vergessen. <strong
+            >Details klären wir im Dialog.</strong
+          >
         </div>
-        <textarea
-          id="message"
-          name="message"
-          rows="6"
-          required=""
-          aria-required="true"
-          aria-describedby="message-hint"></textarea>
+        <textarea id="message" name="message" rows="6" required="" aria-required="true" aria-describedby="message-hint"
+        ></textarea>
 
-        <button
-          class="button"
-          type="submit"
-          id="send-button"
-          aria-describedby="submit-hint">Nachricht senden</button
-        >
+        <button class="button" type="submit" id="send-button" aria-describedby="submit-hint">Nachricht senden</button>
 
         <div id="submit-hint"></div>
         <div role="status" id="send-status" style="display: none"></div>
