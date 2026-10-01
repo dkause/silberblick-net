@@ -3,12 +3,12 @@ import '../styles/global.css'
 import Head from '../components/head.astro'
 import Header from './header.astro'
 import Footer from './footer.astro'
-const { title, description, landing } = Astro.props
+const { title, description } = Astro.props
 ---
 
 <html lang="de">
   <Head title={title} description={description} />
-  <body class={landing ? 'landing' : 'with-sidebar'}>
+  <body>
     <Header />
     <main class="stack content">
       <slot />
