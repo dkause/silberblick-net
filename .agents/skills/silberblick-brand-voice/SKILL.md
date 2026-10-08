@@ -17,8 +17,11 @@ Verfeinerungsprozess, kein Marketing-Sprech.
    Sicherheit, Handarbeit), nie das Tool.
 3. **Handwerks-Metaphern statt Werbesprache.** Manufaktur, Handarbeit, Werkzeug,
    edler Kern, „Glänzen ohne zu Blenden".
-4. **Sie-Form, aber persönlich.** Daniel schreibt in Ich-Form als Autor:
-   „Ich bin Daniel Kause und baue ..." — keine anonyme Unternehmensstimme.
+4. **Sie-/Wir-Form kontextabhängig:**
+   - **Ich-Form** für persönliche Expertise: „Ich bin Daniel Kause und baue ...",
+     „Ich verwende keine Buzzwords ..." — keine anonyme Unternehmensstimme.
+   - **Wir-Form** für Beratung/Teamarbeit: „Wir testen“, „Wir prüfen" (Kunde + Daniel
+     als Einheit; Daniel agiert als Berater, nicht als Einzelkämpfer).
 5. **Ehrlichkeit schlägt Verkaufsdruck.** Nachteile offen nennen (siehe
    Handarbeit-Seite), Fehler benennen („Aus Fehlern lerne ich", Insolvenz in
    Eigenverwaltung). Vertrauen durch Substanz, nicht durch Glattstellen.
