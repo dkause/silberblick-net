@@ -1,0 +1,1 @@
+Die Entwicklung einer Webseite oder einer Fotografie ist für mich in erster Linie ein Denk- und Verfeinerungsprozess. Ziel ist es dem Kunden oder Nutzer eine Problemlösung oder ein postives Erlebnis zu liefern. Ohne Widerstände in der Nutzung, die Wahrnehmung durch eine ruhige Darstellung fokussiert.   
