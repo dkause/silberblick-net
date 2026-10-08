@@ -2,14 +2,7 @@
 const currentPath = Astro.url.pathname
 ---
 
-<button
-  onclick="this.setAttribute('aria-expanded', this.getAttribute('aria-expanded') === 'true' ? 'false' : 'true')"
-  aria-expanded="false"
->
-  <svg focusable="false" viewBox="0 0 32 32" height="1em" style="vertical-align: middle;">
-    <path d="M3 6h26 M3 16h26 M3 26h26" stroke="currentColor" stroke-width="3"></path>
-  </svg></button>
-<nav aria-label="Hauptnavigation">
+<nav id="hauptnavigation" aria-label="Hauptnavigation">
   <div>
     <h2>Über Silberblick</h2><ul>
       <li>

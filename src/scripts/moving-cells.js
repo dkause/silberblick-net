@@ -24,6 +24,7 @@ class MovingCells {
       backgroundColor: 0x000000,
     })
     this.container.appendChild(this.app.canvas)
+    this.app.canvas.setAttribute('aria-hidden', 'true')
     window.addEventListener('mousemove', this._onMouseMove)
     await this.loadImage()
   }

@@ -9,8 +9,9 @@ const { title, description } = Astro.props
 <html lang="de">
   <Head title={title} description={description} />
   <body>
+    <a href="#content" class="skip-link">Zum Inhalt springen</a>
     <Header />
-    <main class="stack content">
+    <main id="content" tabindex="-1" class="stack content">
       <slot />
     </main>
     <Footer />

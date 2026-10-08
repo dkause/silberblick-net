@@ -4,6 +4,16 @@ import Navigation from '../components/navigation.astro'
 ---
 
 <header class="bite">
+  <button
+    onclick="this.setAttribute('aria-expanded', this.getAttribute('aria-expanded') === 'true' ? 'false' : 'true')"
+    aria-expanded="false"
+    aria-controls="hauptnavigation"
+    aria-label="Menü"
+  >
+    <svg focusable="false" viewBox="0 0 32 32" height="1em" style="vertical-align: middle;">
+      <path d="M3 6h26 M3 16h26 M3 26h26" stroke="currentColor" stroke-width="3"></path>
+    </svg>
+  </button>
   <Logo />
   <Navigation />
 </header>

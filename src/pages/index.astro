@@ -117,7 +117,12 @@ import Testimonial from '../components/testimonial.astro'
   function setup() {
     if (instance) instance.destroy()
     const container = document.getElementById('wobble')
-    if (container) instance = initMovingCells(container)
+    if (!container) return
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      container.classList.add('static')
+      return
+    }
+    instance = initMovingCells(container)
   }
   function cleanup() {
     if (instance) {
@@ -145,6 +150,13 @@ import Testimonial from '../components/testimonial.astro'
 
   #wobble img {
     display: none;
+  }
+
+  #wobble.static img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
   #wobble canvas {
