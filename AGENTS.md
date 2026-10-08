@@ -36,8 +36,8 @@ No typecheck or test commands exist. No CI pipeline.
 - Inner pages use `BaseLayout` which wraps content in a sidebar + content flex layout
 - Landing page (`index.astro`) passes `landing` prop to BaseLayout, which toggles `body.landing` class for different header/nav behavior
 - CSS utility classes: `.stack` (vertical spacing), `.grid` (flex wrap), `.grid-grid` (CSS grid)
-- PixiJS: `moving-cells.js` loads an image from `data-src`, splits into a 14x14 grid, animates cells on mouse move — only used on homepage
-- Navigation uses `aria-expanded` toggle button, hidden/shown via CSS media queries and `:has()` selectors
+- Navigation: menu button lives in `header.astro` (before the logo, `aria-label`/`aria-controls`); nav in `navigation.astro` (`id="hauptnavigation"`), shown/hidden via CSS `[aria-expanded='true'] ~ nav` selector and `width >=735px` media query
+- PixiJS: `moving-cells.js` loads an image from `data-src`, splits into a 14x14 grid, animates cells on mouse move — only used on homepage; under `prefers-reduced-motion: reduce` the static image is shown instead
 - `@astrojs/sitemap` integration enabled (site: `https://silberblick.net`)
 
 ## Code Style
