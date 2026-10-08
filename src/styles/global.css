@@ -263,8 +263,8 @@ blockquote {
   font-size: calc(var(--font-size) * 1.7);
   position: relative;
   overflow: hidden;
-  grid-column: 2;
-  grid-row: 1;
+  order: 2;
+  margin-inline-end: auto;
 }
 
 .logo a {
@@ -283,8 +283,6 @@ blockquote {
 
   content: '';
   position: absolute;
-  grid-column: 2;
-  grid-row: 1;
   bottom: 0;
   right: 0;
   width: var(--bite-size);
@@ -375,8 +373,8 @@ article.testimonial div {
 /* 5f. Header & Navigation */
 
 header {
-  display: grid;
-  grid-template-columns: auto 1fr;
+  display: flex;
+  flex-wrap: wrap;
   align-items: center;
   width: 100%;
   hyphens: manual;
@@ -385,8 +383,8 @@ header {
 }
 
 header > nav {
-  grid-column: 1/ -1;
-  grid-row: 2;
+  order: 3;
+  flex-basis: 100%;
   display: none;
 }
 
@@ -427,8 +425,7 @@ nav a:hover {
 /* 6a. Mobile Menu Button */
 
 header > button {
-  grid-column: 1;
-  grid-row: 1;
+  order: 1;
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -445,12 +442,14 @@ header > button {
   display: flex;
   gap: var(--space);
   padding: var(--space);
-  /* 6b. Landing Page */
+}
 
-  @media (width >=735px) {
-    body [aria-expanded='true'] + nav {
-      display: flex;
-      flex-direction: row;
-      gap: var(--space);
-    }
+/* 6b. Landing Page */
+
+@media (width >=735px) {
+  body [aria-expanded='true'] + nav {
+    display: flex;
+    flex-direction: row;
+    gap: var(--space);
   }
+}
