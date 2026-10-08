@@ -12,9 +12,6 @@ import Testimonial from '../components/testimonial.astro'
   description="Webseiten, schnell und barrierefrei, die von Suchmaschinen gefunden und Ihnen Kunden bringen"
 >
   <section class="grid">
-    <div id="wobble" data-src={daniel.src}>
-      <Image src={daniel} alt="Portraitfoto Daniel Kause" />
-    </div>
     <article class="hero">
       <h1>Webseiten, die für Sie arbeiten.</h1><strong>Nicht Sie für die Webseite.</strong>
 
@@ -23,9 +20,11 @@ import Testimonial from '../components/testimonial.astro'
           href="/referenzen/wordpress-relaunch">Solo-Selbständigen</a
         > und <a href="/referenzen/smartde-maintainer">Organisationen</a> Webseiten, die Kunden gewinnen, schnell und barrierefrei
         sind und von Suchmaschinen gefunden werden.
-        <br /><strong>Zusammenarbeiten?</strong>
       </p>
     </article>
+    <div id="wobble" data-src={daniel.src}>
+      <Image src={daniel} alt="Portraitfoto Daniel Kause" />
+    </div>
   </section>
   <h2>Warum mit mir Arbeiten?</h2>
   <section id="kause" class="grid-grid">
@@ -138,7 +137,7 @@ import Testimonial from '../components/testimonial.astro'
   }
 
   #wobble {
-    max-width: 18rem;
+    max-width: 22rem;
     aspect-ratio: 1;
     flex-shrink: 0;
     align-self: flex-start;

@@ -13,7 +13,7 @@
   --silver: silver;
   --dark: #1a1a1a;
   --light: #f6f6f5;
-  --bg-color: #fff;
+  --bg-color: #fff;;
   --logo-skew: skewX(-18deg);
 }
 
@@ -79,14 +79,14 @@ h3 {
 }
 
 p,
-aside,
-details,
-figcaption,
-blockquote,
-ul
- {
-  hyphens: auto;
-  max-inline-size: var(--satzspiegel);
+    aside,
+    details,
+    figcaption,
+    blockquote,
+    ul,
+    li {
+    hyphens: auto;
+    max-inline-size: var(--satzspiegel);
 }
 
 /* 3c. Links */
@@ -127,8 +127,8 @@ p > a:not(.intern) {
 /* 3d. Media */
 
 img {
-    max-inline-size: 100%;
-    block-size: auto;
+    max-width: 100%;
+    height: auto;
 }
 
 figure > img {
@@ -454,4 +454,3 @@ header > button {
       gap: var(--space);
     }
   }
-}
