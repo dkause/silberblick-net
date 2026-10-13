@@ -7,7 +7,7 @@ import Testimonial from '../components/testimonial.astro'
 import { getCollection } from 'astro:content'
 
 const testimonials = await getCollection('testimonials')
-const davidTestimonial = testimonials.find(t => t.id === 'david-hamann')
+const davidTestimonial = testimonials.find((t) => t.id === 'david-hamann')
 ---
 
 <BaseLayout
@@ -15,8 +15,8 @@ const davidTestimonial = testimonials.find(t => t.id === 'david-hamann')
   description="Webseiten, schnell und barrierefrei, die von Suchmaschinen gefunden und Ihnen Kunden bringen"
 >
   <section class="grid">
-    <article class="hero">
-      <h1>SILBERBLICK: <br /> Klären. Entwickeln. Veredeln.</h1>
+    <div>
+      <h1>SILBERBLICK<br /> <span style="font-size: 0.5em;">Klären. Entwickeln. Veredeln.</span></h1>
 
       <p>
         Ich bin Daniel Kause – Fotografenmeister, UX-Designer und Full-Stack-Entwickler. Ich fotografiere und baue
@@ -24,25 +24,21 @@ const davidTestimonial = testimonials.find(t => t.id === 'david-hamann')
           Ästhetisch, barrierefrei und sicher.
         </strong>
       </p>
-      <p>
-        <strong>Meine Methode:</strong> Erst klären, bis der Kern sichtbar wird und der Ausschnitt stimmt –<br />
-        dann auslösen und veredeln: entwickeln.
-      </p>
-    </article>
+    </div>
     <div id="wobble" data-src={daniel.src}>
-      <Image src={daniel} alt="Portraitfoto Daniel Kause" />
+      <Image src={daniel} alt="Daniel Kause, Fotograf und Webentwickler" />
     </div>
   </section>
-  <h2>Meine Methode:</h2>
   <section id="kause" class="grid-grid">
+    <h2>Meine Methode:</h2>
     <article>
       <h3>Klären</h3><p>
-        Ich stelle den Menschen in der Mittelpunkt der Entwicklung, als UX-Stratege, Entwickler und als Fotograf. Eine
+        Ich stelle den Menschen in den Mittelpunkt der Entwicklung, als UX-Stratege, Entwickler und als Fotograf. Eine
         reibungslose, barrierefreie und ästhetische Nutzererfahrung garantiert den Erfolg Ihrer Webseite.
       </p>
     </article>
     <article>
-      <h3>Enwickeln</h3><p>
+      <h3>Entwickeln</h3><p>
         Ich verwende weder Buzzwords wie AI oder KI oder Fachjargon und hinterfrage aktuelle technische Trends und
         Methoden, lege Wert auf eine direkte Kommunikation. Auf der Webseite und in Projekten.
       </p>
@@ -58,66 +54,6 @@ const davidTestimonial = testimonials.find(t => t.id === 'david-hamann')
     <div>
       <CTA />
     </div>
-  </section>
-  <section id="services" style="--stack-space: 3rem" class="grid-grid">
-    <article class="stack-half">
-      <h2>Nutzen</h2>
-      <p>
-        <strong>Mensch im Mittelpunkt!</strong><br />
-        Der Nutzer bestimmt den Erfolg Ihrer Website. Mit Methode und Strategie kommen wir der Psychologie der Nutzers auf
-        die Spur.
-      </p>
-      <ul>
-        <li><a href="/webseiten/ux-strategie">UX Strategie</a></li>
-        <li>Informationsarchitektur</li>
-        <li>Design-Systeme</li>
-        <li><strong>Glänzen ohne zu Blenden</strong></li>
-      </ul>
-    </article>
-    <article class="stack-half" id="barrierefreiheit">
-      <h2>Barrierefreiheit</h2>
-      <p>
-        <strong>Webseiten für Alle!</strong><br />
-        Barrierefreiheit ist für manche Pflicht, für alle verbessert sie Bedienbarkeit und Auffindbarkeit und ist ein starkes
-        Statement zur Inklusion.
-      </p>
-      <ul>
-        <li>Accessibility-Tests</li>
-        <li>SEO und JSON-LD</li>
-        <li>Webstandards und Semantik</li>
-        <li><strong>Einfach ist besser</strong></li>
-      </ul>
-    </article>
-    <article class="stack-half">
-      <h2>Sicherheit</h2>
-      <p>
-        <strong>Meine Daten sind meins!</strong><br />
-        DSGVO, Tracking, Cookies - diese Begriffe lösen Unsicherheit aus. Steigern wir durch europäische Datensouveränität
-        Sicherheitsgefühl und Markenwert.
-      </p>
-      <ul>
-        <li>WordPress, Astro, HTML und CSS</li>
-        <li>Souveränes Hosting in Europa</li>
-        <li>Systemberatung - Was brauche ich?</li>
-        <li>
-          <strong>Keine Baukästen oder Vendor Lock-in</strong>
-        </li>
-      </ul>
-    </article>
-  </section>
-  <section class="grid" id="social-proof">
-    <h2 style="display: block">Das sagen Kunden:</h2>
-    {
-      davidTestimonial && (
-        <Testimonial
-          title={davidTestimonial.data.name}
-          blockquote={davidTestimonial.data.quote}
-          cite={`${davidTestimonial.data.name} - ${davidTestimonial.data.company}`}
-          image={davidTestimonial.data.image}
-          imageAlt={`Portrait ${davidTestimonial.data.name}`}
-        />
-      )
-    }
   </section>
 </BaseLayout>
 <script>
@@ -146,14 +82,8 @@ const davidTestimonial = testimonials.find(t => t.id === 'david-hamann')
 </script>
 
 <style>
-  body.landing > :global(header.sidebar) {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
-  }
-
   #wobble {
-    max-width: 22rem;
+    max-width: 50%;
     aspect-ratio: 1;
     flex-shrink: 0;
     align-self: flex-start;

@@ -47,7 +47,6 @@ body {
   line-height: var(--line-height);
   color: var(--dark);
   background: var(--bg-color);
-  margin-inline: auto;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
@@ -67,7 +66,7 @@ h6 {
 }
 
 h1 {
-  font-size: 4em;
+  font-size: clamp(2rem, 5vw + 1rem, 4rem);
 }
 
 h2 {
@@ -79,14 +78,14 @@ h3 {
 }
 
 p,
-    aside,
-    details,
-    figcaption,
-    blockquote,
-    ul,
-    li {
-    hyphens: auto;
-    max-inline-size: var(--satzspiegel);
+aside,
+details,
+figcaption,
+blockquote,
+ul,
+li {
+  hyphens: auto;
+  max-inline-size: var(--satzspiegel);
 }
 
 /* 3c. Links */
@@ -127,8 +126,8 @@ p > a:not(.intern) {
 /* 3d. Media */
 
 img {
-    max-width: 100%;
-    height: auto;
+  max-width: 100%;
+  height: auto;
 }
 
 figure > img {
@@ -207,21 +206,7 @@ blockquote {
   margin-block-start: calc(var(--stack-space) * 0.5);
 }
 
-.with-sidebar {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space);
-}
-
-.sidebar {
-  flex-basis: 18rem;
-  flex-grow: 1;
-}
-
 .content {
-  flex-basis: 0;
-  flex-grow: 999;
-  inline-size: min(100%, 1440px);
   max-inline-size: 1180px;
   margin-inline: auto;
   padding-inline: clamp(0.5rem, 1rem + 1vw, 2rem);
@@ -252,218 +237,4 @@ blockquote {
 
 .grid-grid > * {
   margin-block-start: 0;
-}
-
-/* --- 5. Components --- */
-
-/* 5a. Logo */
-
-.logo {
-  display: block;
-  font-size: calc(var(--font-size) * 1.7);
-  position: relative;
-  overflow: hidden;
-  margin-inline-end: auto;
-}
-
-.logo a {
-  padding-inline: min(1em, 1.5rem);
-  text-decoration: none;
-  transform: var(--logo-skew);
-  letter-spacing: 0.25rem;
-}
-
-.bite {
-  position: relative;
-}
-
-.bite::after {
-  --bite-size: 20px;
-
-  content: '';
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: var(--bite-size);
-  height: var(--bite-size);
-  border-right: var(--bite-size) solid var(--light);
-  border-bottom: var(--bite-size) solid var(--light);
-}
-
-/* 5b. Link-Button */
-
-.button {
-  background-color: var(--silver);
-  border: 6px solid var(--dark);
-  border-radius: 3px;
-  display: inline-flex;
-  font-size: var(--font-size);
-  align-items: center;
-  text-transform: uppercase;
-  text-decoration: none;
-  padding: calc(var(--font-size) * 0.75);
-}
-
-.button::after {
-  content: '>';
-  padding-inline-start: 0.5em;
-}
-
-.button > a {
-  display: block;
-}
-
-/* 5c. Article */
-
-article > h1 {
-  padding-block-end: 1em;
-  hyphens: none;
-}
-
-/* 5d. Hero */
-
-.hero > h1 {
-  border: none;
-  padding-block-end: 0.2em;
-}
-
-article.hero > h1 {
-  font-size: clamp(2rem, 3.5rem + 1vh, 4.5rem);
-  max-inline-size: none;
-}
-
-article.hero h1 > strong {
-  display: block;
-  font-size: var(--font-size);
-}
-
-article.grid > em {
-  display: inline-block;
-}
-
-/* 5e. Testimonial Card */
-
-article.testimonial {
-  box-shadow: 0 4px 12px color-mix(in srgb, var(--silver), white 25%);
-  color: var(--dark);
-  border-radius: 6px;
-  padding: var(--space);
-  max-width: var(--satzspiegel);
-  overflow: auto;
-}
-
-article.testimonial img {
-  float: right;
-  max-width: 6em;
-  margin-inline-start: var(--space);
-  margin-block-end: var(--space);
-  border-radius: 25%;
-  shape-outside: circle(50%);
-}
-
-article.testimonial cite {
-  font-size: 0.8em;
-}
-
-article.testimonial div {
-  margin-block-start: 0;
-}
-
-/* 5f. Header & Navigation */
-
-header {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  width: 100%;
-  hyphens: manual;
-  color: var(--silver);
-  background-color: var(--dark);
-}
-
-header > nav {
-  flex-basis: 100%;
-  display: none;
-}
-
-nav > h2 {
-  border: none;
-  padding-block-end: 0;
-}
-
-nav h2 {
-  font-size: var(--font-size);
-  text-transform: uppercase;
-  font-weight: 800;
-}
-
-nav ul {
-  display: inline-block;
-  list-style: none;
-  padding: 0;
-  margin-block: 1em;
-}
-
-nav a,
-header a,
-footer a {
-  letter-spacing: 0.12em;
-  transform: none;
-  min-height: 44px;
-  text-decoration: none;
-}
-
-nav a:hover {
-  text-decoration: underline;
-  text-decoration-color: var(--silver);
-}
-
-/* 5g. Skip-Link */
-
-.skip-link {
-  position: fixed;
-  inset-block-start: 0;
-  inset-inline-start: 0;
-  translate: 0 -100%;
-  z-index: 10;
-  background-color: var(--light);
-  color: var(--dark);
-  padding: 0.5rem 1rem;
-}
-
-.skip-link:focus {
-  translate: 0 0;
-}
-
-/* --- 6. Context Overrides --- */
-
-/* 6a. Mobile Menu Button */
-
-header > button {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  background-color: var(--dark);
-  border: none;
-  color: var(--silver);
-  font-weight: bolder;
-  font-size: calc(var(--font-size) * 1.25);
-  padding: 0.75em;
-  gap: 0.25em;
-}
-
-[aria-expanded='true'] ~ nav {
-  display: flex;
-  gap: var(--space);
-  padding: var(--space);
-}
-
-/* 6b. Landing Page */
-
-@media (width >=735px) {
-  body [aria-expanded='true'] ~ nav {
-    display: flex;
-    flex-direction: row;
-    gap: var(--space);
-  }
 }

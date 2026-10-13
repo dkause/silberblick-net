@@ -2,7 +2,31 @@
 
 ---
 
-<div>
-  <a class="button" href="/kontakt">Skizzieren Sie Ihr Projekt</a>
+<div class="cta-container">
+  <a href="/kontakt" class="cta-button">Skizzieren Sie Ihr Projekt</a>
   <p>Oder lieber <a href="tel:+491605535613">telefonieren?</a></p>
 </div>
+
+<style>
+  .cta-container {
+    margin: 2rem 0;
+  }
+
+  .cta-button {
+    background-color: var(--silver);
+    border: 6px solid var(--dark);
+    border-radius: 3px;
+    display: inline-flex;
+    font-size: var(--font-size);
+    align-items: center;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: calc(var(--font-size) * 0.75);
+    letter-spacing: 0.12em;
+  }
+
+  .cta-button::after {
+    content: '>';
+    padding-inline-start: 0.5em;
+  }
+</style>

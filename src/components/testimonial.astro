@@ -4,14 +4,56 @@ const { title, blockquote, cite, image, imageAlt } = Astro.props
 ---
 
 <article class="testimonial">
-  <Image src={image} alt={imageAlt} loading="eager" style="width: 9rem;" />
-  <div>
-    <h3>{title}</h3>
-    <blockquote>
+  <Image src={image} alt={imageAlt} loading="eager" class="testimonial-image" />
+  <div class="testimonial-content">
+    <h3 class="testimonial-title">{title}</h3>
+    <blockquote class="testimonial-quote">
       <p>
         {blockquote}
       </p>
     </blockquote>
-    <cite>{cite}</cite>
+    <cite class="testimonial-cite">{cite}</cite>
   </div>
 </article>
+
+<style>
+  .testimonial {
+    box-shadow: 0 4px 12px color-mix(in srgb, var(--silver), white 25%);
+    color: var(--dark);
+    border-radius: 6px;
+    padding: var(--space);
+    max-width: var(--satzspiegel);
+    overflow: auto;
+    display: flex;
+    gap: 2rem;
+  }
+
+  .testimonial-image {
+    float: right;
+    max-width: 6em;
+    margin-inline-start: var(--space);
+    margin-block-end: var(--space);
+    border-radius: 25%;
+    shape-outside: circle(50%);
+  }
+
+  .testimonial-content {
+    flex: 1;
+  }
+
+  .testimonial-title {
+    font-size: 1.5em;
+    margin-block-end: 0.5rem;
+  }
+
+  .testimonial-quote {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-block-end: 1rem;
+  }
+
+  .testimonial-cite {
+    font-size: 0.8em;
+    font-style: italic;
+  }
+</style>
