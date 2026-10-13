@@ -1,10 +1,13 @@
 ---
 import { Image } from 'astro:assets'
 import daniel from '../assets/Daniel_Kause-Fotograf-1000px.jpg'
-import david from '../assets/Foto-David-Hamann.jpg'
 import BaseLayout from '../layouts/BaseLayout.astro'
 import CTA from '../components/CTA.astro'
 import Testimonial from '../components/testimonial.astro'
+import { getCollection } from 'astro:content'
+
+const testimonials = await getCollection('testimonials')
+const davidTestimonial = testimonials.find(t => t.id === 'david-hamann')
 ---
 
 <BaseLayout
@@ -13,35 +16,39 @@ import Testimonial from '../components/testimonial.astro'
 >
   <section class="grid">
     <article class="hero">
-      <h1>Webseiten, die für Sie arbeiten.</h1><strong>Nicht Sie für die Webseite.</strong>
+      <h1>SILBERBLICK: <br /> Klären. Entwickeln. Veredeln.</h1>
 
       <p>
-        Ich bin <a href="/kause-biografie">Daniel Kause</a> und baue mit Firmen, <a
-          href="/referenzen/wordpress-relaunch">Solo-Selbständigen</a
-        > und <a href="/referenzen/smartde-maintainer">Organisationen</a> Webseiten, die Kunden gewinnen, schnell und barrierefrei
-        sind und von Suchmaschinen gefunden werden.
+        Ich bin Daniel Kause – Fotografenmeister, UX-Designer und Full-Stack-Entwickler. Ich fotografiere und baue
+        individuelle Webseiten und Designsysteme für Firmen, Solo-Selbstständige und Organisationen.<br /><strong>
+          Ästhetisch, barrierefrei und sicher.
+        </strong>
+      </p>
+      <p>
+        <strong>Meine Methode:</strong> Erst klären, bis der Kern sichtbar wird und der Ausschnitt stimmt –<br />
+        dann auslösen und veredeln: entwickeln.
       </p>
     </article>
     <div id="wobble" data-src={daniel.src}>
       <Image src={daniel} alt="Portraitfoto Daniel Kause" />
     </div>
   </section>
-  <h2>Warum mit mir Arbeiten?</h2>
+  <h2>Meine Methode:</h2>
   <section id="kause" class="grid-grid">
     <article>
-      <h3>Mensch im Mittelpunkt</h3><p>
+      <h3>Klären</h3><p>
         Ich stelle den Menschen in der Mittelpunkt der Entwicklung, als UX-Stratege, Entwickler und als Fotograf. Eine
         reibungslose, barrierefreie und ästhetische Nutzererfahrung garantiert den Erfolg Ihrer Webseite.
       </p>
     </article>
     <article>
-      <h3>Klare Sprache und Konzepte</h3><p>
+      <h3>Enwickeln</h3><p>
         Ich verwende weder Buzzwords wie AI oder KI oder Fachjargon und hinterfrage aktuelle technische Trends und
         Methoden, lege Wert auf eine direkte Kommunikation. Auf der Webseite und in Projekten.
       </p>
     </article>
     <article>
-      <h3>Interdisziplinäre Erfahrung</h3>
+      <h3>Veredeln</h3>
       <p>
         Ich bringe Erfahrung aus über 25 Jahren Selbständigkeit als Fotografenmeister im eigenen Studio mit, inkl.
         Ausbildung einer Fotografin und einer Insolvenz in Eigenverwaltung durchgeführt. <br />
@@ -100,13 +107,17 @@ import Testimonial from '../components/testimonial.astro'
   </section>
   <section class="grid" id="social-proof">
     <h2 style="display: block">Das sagen Kunden:</h2>
-    <Testimonial
-      title="Recherche Dienste"
-      blockquote="Die neue Homepage ist ein Segen. Binnen kürzester Zeit hat sie große internationale Resonanz erzielt und die Anzahl der Anfragen hat sich mehr als verdoppelt."
-      cite="Dr. David Hamann - Recherche-Dienste"
-      image={david}
-      imageAlt="Portrait Dr. David Hamann"
-    />
+    {
+      davidTestimonial && (
+        <Testimonial
+          title={davidTestimonial.data.name}
+          blockquote={davidTestimonial.data.quote}
+          cite={`${davidTestimonial.data.name} - ${davidTestimonial.data.company}`}
+          image={davidTestimonial.data.image}
+          imageAlt={`Portrait ${davidTestimonial.data.name}`}
+        />
+      )
+    }
   </section>
 </BaseLayout>
 <script>
@@ -162,14 +173,6 @@ import Testimonial from '../components/testimonial.astro'
   #wobble canvas {
     width: 100%;
     height: 100%;
-    display: block;
-  }
-
-  textarea {
-    resize: vertical;
-  }
-
-  #kause > h2 {
     display: block;
   }
 </style>

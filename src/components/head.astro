@@ -15,6 +15,23 @@ const personSchema = {
     'https://de.linkedin.com/in/kause',
   ],
 }
+// Business Schema SILBERBLICK
+const businessSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  '@id': 'https://silberblick.net/#business',
+  name: 'SILBERBLICK',
+  url: 'https://silberblick.net/',
+  telephone: '+491605535613',
+  areaServed: { '@type': 'City', name: 'Berlin' },
+  foundingDate: '2003',
+  founder: { '@id': 'https://silberblick.net/#person' },
+  sameAs: [
+    'https://silberblick.berlin',
+    'https://maps.app.goo.gl/4RY8EiGGve2Hw3948',
+    'https://de.linkedin.com/in/kause',
+  ],
+}
 ---
 
 <head>
@@ -25,6 +42,7 @@ const personSchema = {
   <meta name="generator" content={Astro.generator} />
   <meta name="description" content={description} />
   <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(businessSchema)} />
   <ClientRouter />
   <title>{title || 'Silberblick'}</title>
   <!-- Matomo Tag Manager -->

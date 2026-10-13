@@ -1,0 +1,64 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import { Image } from 'astro:assets'
+import { getEntry, getCollection, render } from 'astro:content'
+import CTA from '../../components/CTA.astro'
+import Testimonial from '../../components/testimonial.astro'
+
+export async function getStaticPaths() {
+  const referenzen = await getCollection('referenzen')
+  return referenzen.map(ref => ({
+    params: { slug: ref.id }
+  }))
+}
+
+const id = Array.isArray(Astro.params.slug) ? Astro.params.slug[0] : Astro.params.slug
+const entry = await getEntry('referenzen', id)
+const { Content } = await render(entry)
+const testimonials = await getCollection('testimonials')
+const testimonial = entry.data.testimonialId
+  ? testimonials.find(t => t.id === entry.data.testimonialId)
+  : null
+
+const hasTestimonial = entry.data.testimonialId && testimonial
+---
+
+<BaseLayout
+  title={entry.data.title}
+  description={entry.data.description}
+  landing={Astro.params.slug === 'wordpress-relaunch'}
+>
+  <article>
+    <Content />
+
+    {hasTestimonial && (
+      <Testimonial
+        title={testimonial.data.name}
+        blockquote={testimonial.data.quote}
+        cite={`${testimonial.data.name} - ${testimonial.data.company}`}
+        image={testimonial.data.image}
+        imageAlt={`Portrait ${testimonial.data.name}`}
+      />
+    )}
+
+    {entry.data.hasCTA && <CTA />}
+  </article>
+</BaseLayout>
+
+{/* Custom CSS für wordpress-relaunch */}
+{Astro.params.slug === 'wordpress-relaunch' && (
+  <style>
+    .gridx {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4rem;
+    }
+    .gridx > h2 {
+      flex: 1 1 12rem;
+    }
+    .gridx > ul,
+    .gridx > section {
+      flex: 2 1 30rem;
+    }
+  </style>
+)}
