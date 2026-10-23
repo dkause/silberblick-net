@@ -1,5 +1,7 @@
 ---
 
+---
+
 <div class="logo"><a href="/">SILBERBLICK</a></div>
 
 <style>
@@ -12,9 +14,11 @@
   }
 
   .logo a {
-    padding-inline: min(1em, 1.5rem);
     text-decoration: none;
     transform: var(--logo-skew);
     letter-spacing: 0.25rem;
+  }
+  :global(.menu:has([aria-expanded='true'])) ~ .logo {
+    display: none;
   }
 </style>

@@ -2,44 +2,143 @@
 const currentPath = Astro.url.pathname
 ---
 
-<nav id="hauptnavigation" aria-label="Hauptnavigation">
+<nav aria-label="Hauptnavigation" class="menu">
+  <button
+    onclick="this.setAttribute('aria-expanded', this.getAttribute('aria-expanded') === 'true' ? 'false' : 'true')"
+    aria-expanded="false"
+    aria-controls="hauptnavigation"
+    aria-label="Menü"
+    class="menu-button"
+  >
+    <svg focusable="false" viewBox="0 0 32 32" height="1em" style="vertical-align: middle;">
+      <path d="M3 6h26 M3 16h26 M3 26h26" stroke="currentColor" stroke-width="3"></path>
+    </svg>
+  </button>
   <div>
-    <h2>Über Silberblick</h2><ul>
-      <li>
-        <a href="/referenzen" aria-current={currentPath === '/referenzen' ? 'page' : undefined}>Referenzen</a>
-      </li>
-      <li>
-        <a href="/zertifikate" aria-current={currentPath === '/zertifikate' ? 'page' : undefined}>Zertifikate</a>
-      </li>
-      <li>
-        <a href="/kause-biografie" aria-current={currentPath === '/kause-biografie' ? 'page' : undefined}>Kause (Bio)</a>
-      </li>
-    </ul>
-  </div>
-  <div>
-    <h2>Webseiten</h2><ul>
-      <li>
-        <a href="/webseiten/ux-strategie" aria-current={currentPath === '/webseiten/ux-strategie' ? 'page' : undefined}>UX-Strategie</a>
-      </li>
-      <li>
-        <a href="/webseiten/wordPress" aria-current={currentPath === '/webseiten/wordPress' ? 'page' : undefined}>WordPress</a>
-      </li>
-      <li>
-        <a href="/webseiten/handarbeit" aria-current={currentPath === '/webseiten/handarbeit' ? 'page' : undefined}>Handarbeit</a>
-      </li>
-      <li>
-        <a href="/webseiten/preise" aria-current={currentPath === '/webseiten/preise' ? 'page' : undefined}>Preise</a>
-      </li>
-    </ul>
-  </div>
-  <div>
-    <h2>Legales</h2><ul>
-      <li>
-        <a href="/legales/datenschutz" aria-current={currentPath === '/legales/datenschutz' ? 'page' : undefined}>Datenschutz</a>
-      </li>
-      <li>
-        <a href="/legales/impressum" aria-current={currentPath === '/legales/impressum' ? 'page' : undefined}>Impressum</a>
-      </li>
-    </ul>
+    <div id="hauptnavigation">
+      <h2>Über Silberblick</h2><ul>
+        <li>
+          <a href="/referenzen" aria-current={currentPath === '/referenzen' ? 'page' : undefined}>Referenzen</a>
+        </li>
+        <li>
+          <a href="/zertifikate" aria-current={currentPath === '/zertifikate' ? 'page' : undefined}>Zertifikate</a>
+        </li>
+        <li>
+          <a href="/kause-biografie" aria-current={currentPath === '/kause-biografie' ? 'page' : undefined}
+            >Kause (Bio)</a
+          >
+        </li>
+      </ul>
+    </div>
+    <div>
+      <h2>Webseiten</h2><ul>
+        <li>
+          <a
+            href="/webseiten/ux-strategie"
+            aria-current={currentPath === '/webseiten/ux-strategie' ? 'page' : undefined}>UX-Strategie</a
+          >
+        </li>
+        <li>
+          <a href="/webseiten/wordPress" aria-current={currentPath === '/webseiten/wordPress' ? 'page' : undefined}
+            >WordPress</a
+          >
+        </li>
+        <li>
+          <a href="/webseiten/handarbeit" aria-current={currentPath === '/webseiten/handarbeit' ? 'page' : undefined}
+            >Handarbeit</a
+          >
+        </li>
+        <li>
+          <a href="/webseiten/preise" aria-current={currentPath === '/webseiten/preise' ? 'page' : undefined}>Preise</a>
+        </li>
+      </ul>
+    </div>
+    <div>
+      <h2>Legales</h2><ul>
+        <li>
+          <a href="/legales/datenschutz" aria-current={currentPath === '/legales/datenschutz' ? 'page' : undefined}
+            >Datenschutz</a
+          >
+        </li>
+        <li>
+          <a href="/legales/impressum" aria-current={currentPath === '/legales/impressum' ? 'page' : undefined}
+            >Impressum</a
+          >
+        </li>
+      </ul>
+    </div>
   </div>
 </nav>
+<style>
+  .menu-button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--dark);
+    border: none;
+    color: var(--silver);
+    font-weight: bolder;
+    font-size: calc(var(--font-size) * 1.25);
+    padding: 0.75em;
+    gap: 0.25em;
+    margin-right: 0;
+  }
+
+  /* Navigation is always visible */
+  nav > div {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space);
+    padding: var(--space);
+    width: 100%;
+  }
+
+  nav ul {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    padding: 0;
+    margin-block: 0;
+    gap: 10px;
+  }
+
+  /* Horizontal navigation on larger screens */
+
+  [aria-expanded='false'] + div {
+    display: none;
+  }
+  [aria-expanded='true'] + div {
+    display: flex; /* Hide expanded menu for horizontal layout */
+  }
+
+  nav > h2 {
+    border: none;
+    padding-block-end: 0;
+  }
+
+  nav h2 {
+    font-size: var(--font-size);
+    text-transform: uppercase;
+    font-weight: 800;
+  }
+
+  nav ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin-block: 1em;
+  }
+
+  nav a,
+  header a {
+    letter-spacing: 0.12em;
+    transform: none;
+    min-height: 44px;
+    text-decoration: none;
+  }
+
+  nav a:hover {
+    text-decoration: underline;
+    text-decoration-color: var(--silver);
+  }
+</style>

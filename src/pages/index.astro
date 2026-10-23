@@ -20,21 +20,29 @@ const davidTestimonial = testimonials.find((t) => t.id === 'david-hamann')
 
       <p>
         Ich bin Daniel Kause – Fotografenmeister, UX-Designer und Full-Stack-Entwickler. Ich fotografiere und baue
-        individuelle Webseiten und Designsysteme für Firmen, Solo-Selbstständige und Organisationen.<br /><strong>
+        Webseiten und Designsysteme für Firmen, Solo-Selbstständige und Organisationen.<br /><strong>
           Ästhetisch, barrierefrei und sicher.
         </strong>
+      </p>
+      <CTA />
+      <p>
+        Zu meinen Kunden gehören Einzelunternehmer, wie der Historiker David Hamann, für den ich eine komplett neue
+        WordPress Webseite mit eigenem Template entwickelt habe. Oder die SMartde eG, deren WordPress Webseite ich mit
+        kleinen Fixes, Plugin-Updates, Sicherheits- und Barrierefreiheitsaudits warte.
       </p>
     </div>
     <div id="wobble" data-src={daniel.src}>
       <Image src={daniel} alt="Daniel Kause, Fotograf und Webentwickler" />
     </div>
   </section>
-  <section id="kause" class="grid-grid">
-    <h2>Meine Methode:</h2>
+  <section id="kause">
+    <h2>Meine Methode</h2>
     <article>
       <h3>Klären</h3><p>
-        Ich stelle den Menschen in den Mittelpunkt der Entwicklung, als UX-Stratege, Entwickler und als Fotograf. Eine
-        reibungslose, barrierefreie und ästhetische Nutzererfahrung garantiert den Erfolg Ihrer Webseite.
+        Als UX-Designer stelle ich den Menschen in den Mittelpunkt der Entwicklung einer Webseite.<a
+          >Klicken Sie hier und erfahren, wie ich mit einer kleinen Nutzerbasis Daten für die Entwicklung der Website
+          von Dr. Hamann gewonnen habe.</a
+        >
       </p>
     </article>
     <article>
@@ -47,8 +55,7 @@ const davidTestimonial = testimonials.find((t) => t.id === 'david-hamann')
       <h3>Veredeln</h3>
       <p>
         Ich bringe Erfahrung aus über 25 Jahren Selbständigkeit als Fotografenmeister im eigenen Studio mit, inkl.
-        Ausbildung einer Fotografin und einer Insolvenz in Eigenverwaltung durchgeführt. <br />
-        <strong>Aus Fehlern lerne ich.</strong>
+        Ausbildung einer Fotografin und einer Insolvenz in Eigenverwaltung durchgeführt.
       </p>
     </article>
     <div>
@@ -83,7 +90,7 @@ const davidTestimonial = testimonials.find((t) => t.id === 'david-hamann')
 
 <style>
   #wobble {
-    max-width: 50%;
+    max-width: min(100%, 500px);
     aspect-ratio: 1;
     flex-shrink: 0;
     align-self: flex-start;
