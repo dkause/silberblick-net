@@ -1,117 +1,46 @@
 ---
 const currentPath = Astro.url.pathname
+
+const links = [
+  { href: '/webseiten/wie-wir-webseiten-bauen', label: 'Was ich mache' },
+  { href: '/ueber-mich', label: 'Warum Daniel' },
+  { href: '/referenzen', label: 'Referenzen' },
+  { href: '/kontakt', label: 'Kontakt' },
+]
 ---
 
-<nav aria-label="Hauptnavigation" class="menu">
-  <button
-    onclick="this.setAttribute('aria-expanded', this.getAttribute('aria-expanded') === 'true' ? 'false' : 'true')"
-    aria-expanded="false"
-    aria-controls="hauptnavigation"
-    aria-label="Menü"
-    class="menu-button"
-  >
-    <svg focusable="false" viewBox="0 0 32 32" height="1em" style="vertical-align: middle;">
-      <path d="M3 6h26 M3 16h26 M3 26h26" stroke="currentColor" stroke-width="3"></path>
-    </svg>
-  </button>
-  <div>
-    <div id="hauptnavigation">
-      <h2>Über Silberblick</h2><ul>
+<nav aria-label="Hauptnavigation">
+  <ul>
+    {
+      links.map((link) => (
         <li>
-          <a href="/referenzen" aria-current={currentPath === '/referenzen' ? 'page' : undefined}>Referenzen</a>
+          <a href={link.href} aria-current={currentPath === link.href ? 'page' : undefined}>
+            {link.label}
+          </a>
         </li>
-        <li>
-          <a href="/ueber-mich" aria-current={currentPath === '/ueber-mich' ? 'page' : undefined}>Über mich</a>
-        </li>
-      </ul>
-    </div>
-    <div>
-      <h2>Webseiten</h2><ul>
-        <li>
-          <a href="/webseiten/wie-wir-webseiten-bauen" aria-current={currentPath === '/webseiten/wie-wir-webseiten-bauen' ? 'page' : undefined}>Wie wir Webseiten bauen</a>
-        </li>
-      </ul>
-    </div>
-    <div>
-      <h2>Legales</h2><ul>
-        <li>
-          <a href="/legales/datenschutz" aria-current={currentPath === '/legales/datenschutz' ? 'page' : undefined}
-            >Datenschutz</a
-          >
-        </li>
-        <li>
-          <a href="/legales/impressum" aria-current={currentPath === '/legales/impressum' ? 'page' : undefined}
-            >Impressum</a
-          >
-        </li>
-      </ul>
-    </div>
-  </div>
+      ))
+    }
+  </ul>
 </nav>
+
 <style>
-  .menu-button {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--dark);
-    border: none;
-    color: var(--silver);
-    font-weight: bolder;
-    font-size: calc(var(--font-size) * 1.25);
-    padding: 0.75em;
-    gap: 0.25em;
-    margin-right: 0;
-  }
-
-  /* Navigation is always visible */
-  nav > div {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space);
-    padding: var(--space);
-    width: 100%;
-  }
-
   nav ul {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    gap: var(--space-s);
     list-style: none;
     padding: 0;
-    margin-block: 0;
-    gap: 10px;
+    margin: 0;
   }
 
-  /* Horizontal navigation on larger screens */
-
-  [aria-expanded='false'] + div {
-    display: none;
-  }
-  [aria-expanded='true'] + div {
-    display: flex; /* Hide expanded menu for horizontal layout */
+  @media (min-width: 735px) {
+    nav ul {
+      flex-wrap: nowrap;
+    }
   }
 
-  nav > h2 {
-    border: none;
-    padding-block-end: 0;
-  }
-
-  nav h2 {
-    font-size: var(--font-size);
-    text-transform: uppercase;
-    font-weight: 800;
-  }
-
-  nav ul {
-    display: flex;
-    list-style: none;
-    padding: 0;
-    margin-block: 1em;
-  }
-
-  nav a,
-  header a {
+  nav a {
     letter-spacing: 0.12em;
-    transform: none;
     min-height: 44px;
     text-decoration: none;
   }

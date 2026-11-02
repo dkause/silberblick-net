@@ -3,9 +3,13 @@
 :root {
   --font-size: clamp(1rem, 0.93rem + 0.3vw, 1.2rem);
   --line-height: 1.6;
+  --rhythm: calc(var(--font-size) * var(--line-height));
   --satzspiegel: 60ch;
   --space: clamp(0.5rem, 1rem + 1vw, 2rem);
-  --stack-space: calc(1rem * var(--line-height));
+  --space-s: calc(var(--rhythm) * 0.5);
+  --space-m: var(--rhythm);
+  --space-l: calc(var(--rhythm) * 2);
+  --space-xl: calc(var(--rhythm) * 4);
   --font-sans:
     Bahnschrift, 'DIN Alternate', 'Franklin Gothic Medium', 'Nimbus Sans Narrow', sans-serif-condensed, sans-serif;
   --font-serif: Optima, Candara, 'Noto Sans', source-sans-pro, sans-serif;
@@ -204,8 +208,6 @@ blockquote {
 .flex-grid > * {
   margin-block-start: 0;
 }
-
-
 
 .grid {
   display: grid;

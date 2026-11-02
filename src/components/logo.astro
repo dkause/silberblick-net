@@ -1,24 +1,37 @@
 ---
+import logoSvg from '../assets/silberblick.svg?raw'
 
+const logo = logoSvg.replace(/^<\?xml[^>]*\?>/, '').replace(/<!--.*?-->/s, '')
 ---
 
-<div class="logo"><a href="/">SILBERBLICK</a></div>
+<div class="logo">
+  <a href="/" aria-label="Silberblick – zur Startseite" set:html={logo} />
+</div>
 
 <style>
   .logo {
-    display: block;
-    font-size: calc(var(--font-size) * 1.7);
-    position: relative;
-    overflow: hidden;
-    margin-inline-end: calc(1rem + 4vw);
+    width: 100%;
   }
 
   .logo a {
+    display: block;
     text-decoration: none;
-    transform: var(--logo-skew);
-    letter-spacing: 0.25rem;
   }
-  :global(.menu:has([aria-expanded='true'])) ~ .logo {
-    display: none;
+
+  .logo :global(svg) {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .logo :global(svg text) {
+    font-family: var(--font-sans);
+    fill: currentColor;
+  }
+
+  @media (min-width: 735px) {
+    .logo {
+      width: 50%;
+    }
   }
 </style>
