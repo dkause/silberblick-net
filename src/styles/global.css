@@ -203,13 +203,9 @@ blockquote {
 
 .flex-grid > * {
   margin-block-start: 0;
-  flex: 1 1 20rem;
 }
 
-.flex-grid > h2 {
-  flex: none;
-  width: 100%;
-}
+
 
 .grid {
   display: grid;
