@@ -13,25 +13,38 @@ const referenzen = await getCollection('referenzen')
       Ich sehe mich als Partner, der nicht nur Probleme löst, sondern Kunden zu mehr Autonomie verhilft. Deswegen nutze
       ich etablierte Lösungen und offene Standards.
     </p>
-    
-    {referenzen.map(ref => (
-      <article class="grid" id={ref.id}>
-        <h2>{ref.data.title}</h2>
-        {ref.data.thumbnail && (
-          <figure>
-            <Image src={ref.data.thumbnail} alt={ref.data.thumbnailAlt} />
-            <figcaption>Projekt: {ref.data.title} für {ref.data.client}</figcaption>
-          </figure>
-        )}
-        <div class="stack-half">
-          <p>
-            {ref.data.description}
-            {ref.data.link && (
-              <a class="intern" href={ref.data.link}>Weiterlesen</a>
-            )}
-          </p>
-        </div>
-      </article>
-    ))}
+
+    {
+      referenzen.map((ref) => (
+        <article class="flex-grid" id={ref.id}>
+          <h2>{ref.data.title}</h2>
+          {ref.data.thumbnail && (
+            <figure>
+              <Image src={ref.data.thumbnail} alt={ref.data.thumbnailAlt} />
+              <figcaption>
+                Projekt: {ref.data.title} für {ref.data.client}
+              </figcaption>
+            </figure>
+          )}
+          <div>
+            <p>
+              {ref.data.description}
+              {ref.data.link && (
+                <a class="intern" href={ref.data.link}>
+                  Weiterlesen
+                </a>
+              )}
+            </p>
+          </div>
+        </article>
+      ))
+    }
   </section>
 </BaseLayout>
+<style>
+  figure > img {
+    aspect-ratio: 2 / 1;
+    object-fit: cover;
+    object-position: 0 0;
+  }
+</style>

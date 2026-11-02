@@ -11,66 +11,58 @@ const davidTestimonial = testimonials.find((t) => t.id === 'david-hamann')
 ---
 
 <BaseLayout
-  title="Daniel Kause - Webentwicklung und UX Design | Silberblick "
-  description="Webseiten, schnell und barrierefrei, die von Suchmaschinen gefunden und Ihnen Kunden bringen"
+  title="Daniel Kause - Webentwicklung und UX Design | Silberblick"
+  description="Schnelle, barrierefreie Webseiten, die von Suchmaschinen gefunden werden und Ihnen helfen, Kunden zu gewinnen. Von Daniel Kause, Fotografenmeister, UX Designer und Entwickler."
 >
   <section class="grid">
     <div>
       <h1>SILBERBLICK<br /> <span style="font-size: 0.5em;">Klären. Entwickeln. Veredeln.</span></h1>
 
       <p>
-        Ich bin Daniel Kause – Fotografenmeister, UX-Designer und Full-Stack-Entwickler. Ich fotografiere und baue
-        Webseiten und Designsysteme für Firmen, Solo-Selbstständige und Organisationen.<br /><strong>
+        Ich bin Daniel Kause – Fotografenmeister, UX-Designer und Full-Stack-Entwickler. Ich baue Webseiten und
+        Designsysteme für Firmen, Solo-Selbständige und Organisationen.<br /><strong>
           Ästhetisch, barrierefrei und sicher.
         </strong>
       </p>
       <CTA />
-      <p>
-        Zu meinen Kunden gehören Einzelunternehmer, wie der Historiker David Hamann, für den ich eine WordPress Webseite
-        mit eigenem Template entwickelt habe. Oder die SMartde eG, deren WordPress Webseite ich mit kleinen Fixes,
-        Plugin-Updates, Sicherheits- und Barrierefreiheitsaudits warte.
-      </p>
     </div>
     <div id="wobble" data-src={daniel.src}>
       <Image src={daniel} alt="Daniel Kause, Fotograf und Webentwickler" />
     </div>
   </section>
-  <section id="methode">
-    <h2>Meine Methode</h2>
+  <section id="Kunden">
+    <h2>Wie helfe ich meinen Kunden bessere Webseiten zu bauen?</h2>
     <p>
-      Meine 25 Jahre Erfahrung als der Fotograf von dem Fotostudio SILBERBLICK kommen mir als Webentwickler zugute. Wie
-      ein Foto entsteht eine Website in mehreren Schritten, im Prozess.
+      25 Jahre Fotografie haben meinen Blick geschult: fürs kleine Detail und das ganze Bild. Beides bringe ich in die
+      Webentwicklung mit.<br />Jedes Produkt, jedes Business, jede Webseite hat einen Kern. Ich sorge dafür, dass man
+      ihn sieht.
     </p>
+  </section>
+  <section class="grid" id="methode">
     <article>
       <h3>Klären</h3><p>
-        Erst sehen,dann verstehen. Was gehört ins Bild und was nicht? Als UX Designer stelle ich den Menschen in den
-        Mittelpunkt. Ich frage die Nutzer bevor ich mit der Entwicklung beginne. Wie das mit einer kleine Nutzerbasis
-        gelingt, <a href="/referenzen/recherche-dienste"> ich am Beispiel von Dr. Hamann.</a>
+        Erst sehen, dann verstehen. Bevor ich eine Zeile Code schreibe, spreche ich mit den Menschen, für die die Seite
+        gedacht ist. Das geht auch mit kleiner Nutzerbasis.<a href="/referenzen/recherche-dienste">
+          Wie, zeige ich am Beispiel von Dr. Hamann.</a
+        >
       </p>
     </article>
     <article>
       <h3>Entwickeln</h3><p>
-        Nicht jeder Schuss sitzt sofort. mit Prototypen und Tests prüfen wir die Umsetzung der Webseite oder App.
+        Nicht jeder Schuss sitzt sofort. Wie mit Polaroids früher, prüfe ich mit Prototypen und Tests die Umsetzung der
+        Webseite oder App und justiere nach, bevor es teuer wird. Barrierefreiheit und Suchmaschinen-Optimierung denke
+        ich vom Anfang an mit.
       </p>
     </article>
     <article>
       <h3>Veredeln</h3>
       <p>
-        ?Retusche/das Bild muss in den Rahmen passen. Was funktioniert kommt in den Rahmen. Mit Accessiblity- und
-        Seo-Checks bringe wir die Webseit online.
+        Weniger ist besser, meistens. Aus 25 Jahren Fotografie weiß ich, was ins Bild gehört und was nicht. Aus meiner
+        Selbständigkeit weiß ich, was ein Projekt braucht, damit es im Rahmen bleibt: im Budget, im Zeitplan, im Blick.
       </p>
     </article>
-    <section>
-      <h3>Über mich</h3>
-      <p>
-        Ich bringe Erfahrung aus über 25 Jahren Selbständigkeit als Fotografenmeister im eigenen Studio mit, inkl.
-        Ausbildung einer Fotografin und einer Insolvenz in Eigenverwaltung durchgeführt.
-      </p>
-    </section>
-    <div>
-      <CTA />
-    </div>
   </section>
+  <CTA />
 </BaseLayout>
 <script>
   import { initMovingCells } from '../scripts/moving-cells'
@@ -81,10 +73,16 @@ const davidTestimonial = testimonials.find((t) => t.id === 'david-hamann')
     if (instance) instance.destroy()
     const container = document.getElementById('wobble')
     if (!container) return
+    const img = container.querySelector('img')
+    const altText = img?.getAttribute('alt') ?? ''
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       container.classList.add('static')
+      container.removeAttribute('role')
+      container.removeAttribute('aria-label')
       return
     }
+    container.setAttribute('role', 'img')
+    container.setAttribute('aria-label', altText)
     instance = initMovingCells(container)
   }
   function cleanup() {

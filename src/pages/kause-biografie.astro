@@ -49,10 +49,22 @@ import CTA from '../components/CTA.astro'
           <li>1996 - 2001: freie Assistenz und Fotograf</li>
           <li>1971: Geboren in Berlin</li>
         </ul>
-
-        <Image src={daniel} alt="Daniel Kause Fotograf" />
+        <figure>
+          <Image src={daniel} alt="Daniel Kause Fotograf" />
+          <figcaption>Portrait Daniel Kause</figcaption>
+        </figure>
       </div>
     </section>
     <CTA />
   </section>
 </BaseLayout>
+<style>
+  figure {
+    max-width: min(100%, 500px);
+  }
+  figure img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+</style>

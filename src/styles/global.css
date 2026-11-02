@@ -29,16 +29,6 @@
 
 /* 3a. Body & Document */
 
-html,
-body,
-div,
-header,
-nav,
-main,
-footer {
-  max-inline-size: none;
-}
-
 body {
   overflow-wrap: break-word;
   hyphens: auto;
@@ -60,21 +50,24 @@ h3,
 h4,
 h5,
 h6 {
+  line-height: 200%;
+  padding-top: 0.375lh;
+  padding-bottom: 0.125lh;
   font-weight: 900;
   font-family: var(--font-sans), sans-serif;
   hyphens: none;
 }
 
 h1 {
-  font-size: clamp(2rem, 5vw + 1rem, 4rem);
+  font-size: clamp(2rem, 6vw + 1rem, 4rem);
 }
 
 h2 {
-  font-size: clamp(2em, calc(3em - 1vw), 4em);
+  font-size: clamp(1.8rem, 5vw + 1rem, 3.6rem);
 }
 
 h3 {
-  font-size: 2em;
+  font-size: clamp(1.4rem, 2vw + 1rem, 2.8rem);
 }
 
 p,
@@ -133,9 +126,6 @@ img {
 figure > img {
   display: block;
   width: 100%;
-  aspect-ratio: 2 / 1;
-  object-fit: cover;
-  object-position: 0 0;
 }
 
 figure > figcaption {
@@ -198,14 +188,6 @@ blockquote {
 
 /* --- 4. Layout Utilities --- */
 
-.stack * + * {
-  margin-block-start: var(--stack-space);
-}
-
-.stack-half * + * {
-  margin-block-start: calc(var(--stack-space) * 0.5);
-}
-
 .content {
   max-inline-size: 1180px;
   margin-inline: auto;
@@ -213,28 +195,28 @@ blockquote {
   margin-block-start: var(--space);
 }
 
-.grid {
+.flex-grid {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space);
 }
 
-.grid > * {
+.flex-grid > * {
   margin-block-start: 0;
   flex: 1 1 20rem;
 }
 
-.grid > h2 {
+.flex-grid > h2 {
   flex: none;
   width: 100%;
 }
 
-.grid-grid {
+.grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(30ex, auto));
-  gap: 2rem;
+  gap: var(--space);
 }
 
-.grid-grid > * {
+.grid > * {
   margin-block-start: 0;
 }
