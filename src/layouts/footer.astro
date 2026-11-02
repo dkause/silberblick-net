@@ -3,6 +3,12 @@
 ---
 
 <footer>
+  <nav aria-label="Footer-Navigation">
+    <ul>
+      <li><a href="/legales/impressum">Impressum</a></li>
+      <li><a href="/legales/datenschutz">Datenschutz</a></li>
+    </ul>
+  </nav>
   <svg viewBox="0 0 88.628891 8.7067413" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
     <defs id="defs1"></defs>
     <g id="layer1" transform="translate(-185.91832,-153.78963)">
@@ -11,23 +17,48 @@
         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:12px;font-family:'DIN Alternate';-inkscape-font-specification:'DIN Alternate, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;letter-spacing:1.46px;writing-mode:lr-tb;direction:ltr;baseline-shift:baseline;display:inline;fill:#b3b3b3;stroke:none;stroke-width:4.05543"
         x="278.57907"
         y="162.31654"
-        transform="matrix(0.99982301,3.098846e-4,-0.57128779,0.99999995,0,0)">SILBERBLICK</text
-      >
+        transform="matrix(0.99982301,3.098846e-4,-0.57128779,0.99999995,0,0)">SILBERBLICK</text>
     </g>
   </svg>
 </footer>
 
 <style>
-  footer {
-    background-color: var(--dark);
-    margin-block-start: 3rem;
-    padding-block: 3rem;
-    padding-inline: 3rem;
-  }
+footer {
+  background-color: var(--dark);
+  margin-block-start: 3rem;
+  padding-block: 3rem;
+  padding-inline: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-m);
+}
 
-  footer svg {
-    display: block;
-    width: 100%;
-    height: auto;
-  }
+footer nav ul {
+  display: flex;
+  gap: var(--space-m);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+footer nav a {
+  color: var(--silver);
+  text-decoration: none;
+  font-family: var(--font-sans);
+  font-weight: 800;
+  letter-spacing: 0.1em;
+}
+
+footer nav a:hover {
+  text-decoration: underline;
+}
+
+footer svg {
+  display: block;
+  width: 100%;
+  max-width: 80%;
+  height: auto;
+  margin-top: var(--space-s);
+}
 </style>

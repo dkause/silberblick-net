@@ -1,0 +1,46 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import { Image } from 'astro:assets'
+import daniel from '../assets/Daniel_Kause-Fotograf-1000px.jpg'
+import CTA from '../components/CTA.astro'
+import Meisterbrief from '../assets/Meisterbrief-1024x720.jpg'
+import UXZertifikat from '../assets/Certifcate-UX-Design-1024x724.jpg'
+import FullStackZertifikat from '../assets/CareerFoundry_Certificate_FSD_Daniel-Kause-1024x724.jpg'
+---
+
+<BaseLayout title="Über mich" description="Daniel Kause – Fotografenmeister, UX Designer und Entwickler aus Berlin">
+  <div class="grid">
+    <div>
+      <h1>Über mich</h1>
+      <p>
+        Seit 2003 arbeite ich als Fotografenmeister in Berlin. 2020 habe ich mich auf UX Design und Webentwicklung spezialisiert.
+        Seit 2022 bin ich zertifizierter UX Designer, seit 2024 Full Stack Developer.
+      </p>
+      <p>
+        Ich baue Webseiten und Designsysteme – mit Fokus auf Barrierefreiheit, Performance und klare Nutzerführung.
+      </p>
+    </div>
+    <div>
+      <Image src={daniel} alt="Daniel Kause, Fotograf und Webentwickler" />
+    </div>
+  </div>
+
+  <section id="zertifikate">
+    <h2>Zertifikate</h2>
+    <div class="grid">
+      <figure>
+        <Image src={Meisterbrief} alt="Meisterbrief Fotografie" />
+        <figcaption>Fotografenmeister seit 2003</figcaption>
+      </figure>
+      <figure>
+        <Image src={UXZertifikat} alt="UX Design Zertifikat" />
+        <figcaption>UX Design (CareerFoundry, 2022)</figcaption>
+      </figure>
+      <figure>
+        <Image src={FullStackZertifikat} alt="Full Stack Developer Zertifikat" />
+        <figcaption>Full Stack Development (CareerFoundry, 2024)</figcaption>
+      </figure>
+    </div>
+  </section>
+  <CTA />
+</BaseLayout>
